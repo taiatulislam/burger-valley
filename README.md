@@ -90,7 +90,7 @@ To run the Burger Valley Website locally, follow these steps:
    ```
 
 4. **Set Up Environment Variables:**
-   Create a `.env` file in the root directory and add the following variables
+   Create a `.env` file in the root directory and add the variables.
 
 5. **Run the Development Server:**
    ```
