@@ -3,6 +3,7 @@ import News_Features from "./News_Features";
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import Offer_Card from "./Offer_Card";
 
 const News_Card = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -16,9 +17,9 @@ const News_Card = () => {
             <div className={`lg:hidden fixed top-0 left-0 w-full h-full z-50 bg-black bg-opacity-50 ${sidebarOpen ? 'block' : 'hidden'}`} onClick={toggleSidebar}>
 
             </div>
-            <div className={`lg:hidden fixed top-0 left-0 h-full z-50 bg-white w-4/5 md:w-3/5  transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className={`lg:hidden fixed top-0 left-0 h-full z-50 bg-black w-4/5 md:w-3/5  transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className="flex justify-end p-4">
-                    <button onClick={toggleSidebar} className=""><RxCross2></RxCross2></button>
+                    <button onClick={toggleSidebar} className="text-white"><RxCross2></RxCross2></button>
                 </div>
                 <div className="p-4">
                     <News_Features />
@@ -104,6 +105,7 @@ const News_Card = () => {
                 </section>
                 <div className="hidden lg:block lg:w-4/12 px-2 py-4">
                     <News_Features />
+                    <Offer_Card></Offer_Card>
                 </div>
             </div>
         </>
