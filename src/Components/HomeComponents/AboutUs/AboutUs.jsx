@@ -4,7 +4,7 @@ import { IoArrowRedo } from "react-icons/io5";
 
 const AboutUs = () => {
   return (
-    <div>
+    <>
       <hr className="my-16 border-gray-700 border-[1px]" />
       <div className="flex flex-col lg:flex-row gap-10 text-white px-5 lg:px-0">
         <div className="w-full lg:w-1/2">
@@ -50,7 +50,7 @@ const AboutUs = () => {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
