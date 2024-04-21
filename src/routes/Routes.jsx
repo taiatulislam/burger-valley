@@ -6,6 +6,8 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import Dashboard from "../pages/dashboard/Dashboard";
 import News from "../pages/news_section/News";
+import ContactUs from "../pages/contactUs/ContactUs";
+import AboutUs from "../pages/aboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <News></News>
+      },
+      {
+        path: "contact-us",
+        element: <ContactUs />
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />
       },
     ],
   },
