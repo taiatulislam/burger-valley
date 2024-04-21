@@ -18,7 +18,7 @@ const ContentTitle = ({ title, description, barWidth }) => {
 ContentTitle.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  barWidth: PropTypes.string,
+  barWidth: PropTypes.number,
 };
 
 export default ContentTitle;

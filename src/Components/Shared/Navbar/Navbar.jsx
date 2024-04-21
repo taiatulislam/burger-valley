@@ -1,18 +1,15 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-
 
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 font-primary bg-black duration-300">
       <div className="w-full px-1 md:px-7 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex items-center justify-between lg:w-auto lg:static lg:block lg:justify-start">
-
           {/* Logo Section Start */}
-          <div className='flex items-center gap-4 mr-5'>
+          <div className="flex items-center gap-4 mr-5">
             {/* <img className='w-16 dark:block hidden duration-300' src={logoWhite} alt="" />
                         <img className='w-16 dark:hidden block duration-300' src={logoBlack} alt="" /> */}
             <a
@@ -31,23 +28,18 @@ const Navbar = () => {
             onClick={() => setNavbarOpen(!navbarOpen)}
           >
             <details>
-              <summary>
-
-              </summary>
+              <summary></summary>
             </details>
           </button>
           {/* Navbar Button Section End */}
-          
         </div>
         <div
           className={
-            "lg:flex flex-grow items-center" +
-            (navbarOpen ? "flex" : " hidden")
+            "lg:flex flex-grow items-center" + (navbarOpen ? "flex" : " hidden")
           }
           id="example-navbar-danger"
         >
-          <div className='w-full flex justify-between items-center mt-5 lg:mt-0 mb-2 lg:mb-0'>
-
+          <div className="w-full flex justify-between items-center mt-5 lg:mt-0 mb-2 lg:mb-0">
             {/* Nav Links And Routes Section Start */}
             <div>
               <ul className="flex flex-col lg:flex-row list-none lg:ml-auto gap-3 xl:gap-5">
@@ -86,9 +78,8 @@ const Navbar = () => {
             {/* Nav Links And Routes Section End */}
 
             {/* User Section Start */}
-            <div >
+            <div>
               <ul className=" flex lg:items-center justify-center items-end flex-col lg:flex-row list-none lg:ml-auto gap-3 xl:gap-5">
-
                 <li className=" px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-white duration-300 hover:opacity-75">
                   <NavLink
                     to="login"
@@ -99,20 +90,21 @@ const Navbar = () => {
                     LOGIN
                   </NavLink>
                 </li>
-                <a className=" lg:my-1 xl:mx-3 flex items-center text-sm xl:text-base uppercase font-semibold  text-white duration-300 hover:opacity-75 border-2 border-[#FF9D00] rounded-md">
+                <li className=" lg:my-1 xl:mx-3 flex items-center text-sm xl:text-base uppercase font-semibold  text-white duration-300 hover:opacity-75 border-2 border-[#FF9D00] rounded-md">
                   <NavLink
                     to="/register"
                     className={({ isActive, isPending }) =>
                       isPending ? "pending" : isActive ? "text-[#FF9D00]" : ""
                     }
                   >
-                    <p className='flex items-center mx-2 xl:mx-3 my-1 xl:my-2'>REGISTER</p>
+                    <p className="flex items-center mx-2 xl:mx-3 my-1 xl:my-2">
+                      REGISTER
+                    </p>
                   </NavLink>
-                </a>
+                </li>
               </ul>
             </div>
             {/* User Section End */}
-
           </div>
         </div>
       </div>
