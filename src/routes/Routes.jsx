@@ -8,6 +8,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import News from "../pages/news_section/News";
 import ContactUs from "../pages/contactUs/ContactUs";
 import AboutUs from "../pages/aboutUs/AboutUs";
+import News_Details from "../pages/news_section/News_Details";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <News></News>
+      },
+      {
+        path: "news-details",
+        element: <News_Details></News_Details>
       },
       {
         path: "contact-us",
