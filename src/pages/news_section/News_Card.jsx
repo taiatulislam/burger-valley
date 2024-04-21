@@ -4,8 +4,14 @@ import { FaBarsStaggered } from 'react-icons/fa6';
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Offer_Card from "./Offer_Card";
+import useGetAllNews from "../../Hooks/userGetAllnews";
+
 
 const News_Card = () => {
+ 
+    const [allNewsData] = useGetAllNews()
+    console.log(allNewsData);
+
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
