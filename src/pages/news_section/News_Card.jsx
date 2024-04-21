@@ -27,7 +27,7 @@ const News_Card = () => {
             <div>
                 <button className="lg:hidden px-2 py-2" onClick={toggleSidebar}> <FaBarsStaggered></FaBarsStaggered> </button>
             </div>
-            <div className="lg:flex ">
+            <div className="lg:flex bg-black ">
                 <section className=" lg:w-8/12 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 px-2 py-4 ">
                     <div className="md:max-w-[320px] w-full bg-black border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
