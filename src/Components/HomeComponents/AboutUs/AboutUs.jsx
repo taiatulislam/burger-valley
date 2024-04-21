@@ -5,26 +5,25 @@ import { IoArrowRedo } from "react-icons/io5";
 const AboutUs = () => {
   return (
     <div>
-      <div className="flex gap-10">
-        <div className="w-1/2">
+      <hr className="my-16 border-gray-700 border-[1px]" />
+      <div className="flex flex-col lg:flex-row gap-10 text-white px-5 lg:px-0">
+        <div className="w-full lg:w-1/2">
           <img
             src={sectionImage}
             alt="about us Image"
             className="rounded-lg w-full h-cover"
           />
         </div>
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2">
           <ContentTitle
-            title={
-              "Find food and drinks, all-in-one place for your best taste."
-            }
+            title={"Find your best tasted food & drink just in one place."}
             description={
               "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis inventore eaque dolorum architecto dolore saepe, veniam nulla sed earum voluptate error officia, alias nobis velit!"
             }
             barWidth={100}
           ></ContentTitle>
 
-          <div className="flex my-5 gap-20">
+          <div className="flex my-5 gap-20 text-gray-400">
             <div>
               <h3>
                 <IoArrowRedo className="inline mr-5 text-yellow-400"></IoArrowRedo>
@@ -46,7 +45,7 @@ const AboutUs = () => {
               </h3>
             </div>
           </div>
-          <button className="bg-yellow-400 px-5 py-3 rounded-lg font-semibold">
+          <button className="bg-yellow-400 text-black px-5 py-3 rounded-sm font-semibold">
             About Us
           </button>
         </div>

@@ -8,25 +8,29 @@ import "swiper/css/navigation";
 
 const CustomerReview = () => {
   return (
-    <div>
+    <div className="py-16 text-white bg-zinc-900 px-5">
       <SectionTitle
         title={"Customer Review"}
         description={
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus expedita perferendis dolor delectus non"
         }
-        barWidth={10}
+        barWidth={100}
       ></SectionTitle>
 
       <div className="mt-10">
         <Swiper
           modules={[Navigation]}
           spaceBetween={50}
-          slidesPerView={3}
+          slidesPerView={1}
           navigation
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
         >
           {/* Card-1 */}
           <SwiperSlide>
-            <div className="rounded-lg bg-gray-200 p-5">
+            <div className="rounded-lg bg-black p-5">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Consectetur, aspernatur. Aspernatur a maxime soluta minus
@@ -45,13 +49,13 @@ const CustomerReview = () => {
                     <h3>Graphics Designer</h3>
                   </div>
                 </div>
-                <FaQuoteRight className="text-4xl" />
+                <FaQuoteRight className="text-4xl text-yellow-400" />
               </div>
             </div>
           </SwiperSlide>
           {/* Card-2 */}
           <SwiperSlide>
-            <div className="rounded-lg bg-gray-200 p-5">
+            <div className="rounded-lg bg-black p-5">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Consectetur, aspernatur. Aspernatur a maxime soluta minus
@@ -70,13 +74,13 @@ const CustomerReview = () => {
                     <h3>Graphics Designer</h3>
                   </div>
                 </div>
-                <FaQuoteRight className="text-4xl" />
+                <FaQuoteRight className="text-4xl text-yellow-400" />
               </div>
             </div>
           </SwiperSlide>
           {/* Card-3 */}
           <SwiperSlide>
-            <div className="rounded-lg bg-gray-200 p-5">
+            <div className="rounded-lg bg-black p-5">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Consectetur, aspernatur. Aspernatur a maxime soluta minus
@@ -95,13 +99,13 @@ const CustomerReview = () => {
                     <h3>Graphics Designer</h3>
                   </div>
                 </div>
-                <FaQuoteRight className="text-4xl" />
+                <FaQuoteRight className="text-4xl text-yellow-400" />
               </div>
             </div>
           </SwiperSlide>
           {/* Card-4 */}
           <SwiperSlide>
-            <div className="rounded-lg bg-gray-200 p-5">
+            <div className="rounded-lg bg-black p-5">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Consectetur, aspernatur. Aspernatur a maxime soluta minus
@@ -120,7 +124,7 @@ const CustomerReview = () => {
                     <h3>Graphics Designer</h3>
                   </div>
                 </div>
-                <FaQuoteRight className="text-4xl" />
+                <FaQuoteRight className="text-4xl text-yellow-400" />
               </div>
             </div>
           </SwiperSlide>

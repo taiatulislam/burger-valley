@@ -5,11 +5,13 @@ import NewsLetter from "../../Components/Shared/NewsLetter/NewsLetter";
 
 function Home() {
   return (
-    <div className="max-w-7xl mx-auto">
-      <Banner />
-      <AboutUs />
-      <NewsLetter />
-      <CustomerReview />
+    <div className="bg-black">
+      <div className="max-w-7xl mx-auto">
+        <Banner />
+        <AboutUs />
+        <NewsLetter />
+        <CustomerReview />
+      </div>
     </div>
   );
 }
