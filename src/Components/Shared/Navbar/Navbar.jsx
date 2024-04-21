@@ -15,6 +15,9 @@ export default function Navbar() {
           <Link to={"/register"}>Register</Link>
         </li>
         <li>
+          <Link to={"/news"}>News</Link>
+        </li>
+        <li>
           <Link to={"/dashboard"}>Dashboard</Link>
         </li>
       </ul>
