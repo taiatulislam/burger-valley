@@ -37,7 +37,7 @@ const Navbar = () => {
             </details>
           </button>
           {/* Navbar Button Section End */}
-          
+
         </div>
         <div
           className={
@@ -88,9 +88,13 @@ const Navbar = () => {
                       isPending ? "pending" : isActive ? "text-[#FF9D00]" : ""
                     }
                   >
-                    News
+                    Page
                   </NavLink>
                 </li>
+
+                
+
+
               </ul>
             </div>
             {/* Nav Links And Routes Section End */}
