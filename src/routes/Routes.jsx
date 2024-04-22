@@ -8,6 +8,8 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import News from "../pages/news_section/News";
 import ContactUs from "../pages/contactUs/ContactUs";
 import AboutUs from "../pages/aboutUs/AboutUs";
+import AllMenus from "../pages/menu/AllMenus";
+import MenuDetails from "../pages/menuDetails/MenuDetails";
 import News_Details from "../pages/news_section/News_Details";
 
 const router = createBrowserRouter([
@@ -19,6 +21,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/all-foods",
+        element: <AllMenus />,
+      },
+      {
+        path: "/food/:id",
+        element: <MenuDetails />,
+      },
+      {
+        path: "/all-foods/food/:id",
+        element: <MenuDetails />,
       },
       {
         path: "login",
