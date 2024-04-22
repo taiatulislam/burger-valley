@@ -11,6 +11,7 @@ import AboutUs from "../pages/aboutUs/AboutUs";
 import AllMenus from "../pages/menu/AllMenus";
 import MenuDetails from "../pages/menuDetails/MenuDetails";
 import News_Details from "../pages/news_section/News_Details";
+import Add_News from "../pages/news_section/Add_News";
 
 const router = createBrowserRouter([
   {
@@ -47,8 +48,12 @@ const router = createBrowserRouter([
         element: <News></News>
       },
       {
-        path: "news-details",
+        path: "/news_details/:id",
         element: <News_Details></News_Details>
+      },
+      {
+        path: "add_news",
+        element: <Add_News></Add_News>
       },
       {
         path: "contact-us",

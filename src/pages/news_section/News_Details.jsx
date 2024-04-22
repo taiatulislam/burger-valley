@@ -206,7 +206,7 @@ const News_Details = () => {
                 </div>
 
                 {/* right side  */}
-                <div className="hidden lg:block lg:w-4/12 px-2 py-4">
+                <div className="hidden lg:block lg:w-5/12 px-2 py-4">
                     <News_Features />
                     <Offer_Card></Offer_Card>
                 </div>
