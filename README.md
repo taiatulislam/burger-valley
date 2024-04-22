@@ -90,12 +90,7 @@ To run the Burger Valley Website locally, follow these steps:
    ```
 
 4. **Set Up Environment Variables:**
-   Create a `.env` file in the root directory and add the following variables:
-   ```
-   PORT=5000
-   MONGODB_URI=your_mongodb_connection_string
-   SECRET_KEY=your_secret_key
-   ```
+   Create a `.env` file in the root directory and add the variables.
 
 5. **Run the Development Server:**
    ```
