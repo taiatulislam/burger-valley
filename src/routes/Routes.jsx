@@ -5,10 +5,12 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import Dashboard from "../pages/dashboard/Dashboard";
+import News from "../pages/news_section/News";
 import ContactUs from "../pages/contactUs/ContactUs";
 import AboutUs from "../pages/aboutUs/AboutUs";
 import AllMenus from "../pages/menu/AllMenus";
 import MenuDetails from "../pages/menuDetails/MenuDetails";
+import News_Details from "../pages/news_section/News_Details";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "news",
+        element: <News></News>
+      },
+      {
+        path: "news-details",
+        element: <News_Details></News_Details>
       },
       {
         path: "contact-us",
