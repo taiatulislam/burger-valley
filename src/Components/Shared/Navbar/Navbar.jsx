@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import "./manu.css";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
+  const toggleNavbar = () => {
+    setNavbarOpen(!navbarOpen);
+  };
 
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 font-primary bg-black duration-300">
@@ -13,8 +16,6 @@ const Navbar = () => {
 
           {/* Logo Section Start */}
           <div className='flex items-center gap-4 mr-5'>
-            {/* <img className='w-16 dark:block hidden duration-300' src={logoWhite} alt="" />
-                        <img className='w-16 dark:hidden block duration-300' src={logoBlack} alt="" /> */}
             <a
               className="text-xl xl:text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white duration-300"
               href="/"
@@ -24,25 +25,25 @@ const Navbar = () => {
           </div>
           {/* Logo Section End */}
 
-          {/* Navbar Button Section Start */}
+          {/* Navbar Menu Button Section Start */}
           <button
             className="text-white duration-300 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
             type="button"
-            onClick={() => setNavbarOpen(!navbarOpen)}
+            onClick={toggleNavbar}
           >
-            <details>
-              <summary>
-
-              </summary>
-            </details>
+            <div className={`hamburger ${navbarOpen ? 'is-active' : ''}`} id="hamburger-menu">
+              <span className="line"></span>
+              <span className="line"></span>
+              <span className="line"></span>
+            </div>
           </button>
-          {/* Navbar Button Section End */}
-          
+          {/* Navbar Menu Button Section End */}
+
         </div>
         <div
           className={
             "lg:flex flex-grow items-center" +
-            (navbarOpen ? "flex" : " hidden")
+            (navbarOpen ? " flex" : " hidden")
           }
           id="example-navbar-danger"
         >
