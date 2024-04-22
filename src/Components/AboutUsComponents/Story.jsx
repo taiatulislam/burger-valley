@@ -18,8 +18,10 @@ const Story = () => {
                     >
                         <path fill="#FF9D00" d="M0 139.474H290.658V151.185H0z"></path>
                     </svg>
-                    <p className="mb-4">At Burger Valley, we're not just about burgers - we're about crafting unforgettable dining experiences. Our journey began with a passion for delivering the juiciest, most flavorful burgers in town.</p>
-                    <p className="mb-4">But we didn't stop there. We believe in offering a diverse range of culinary delights to satisfy every craving. From crispy fries to mouthwatering sandwiches, our menu is crafted with care to please every palate.</p>
+                    <p className="mb-4">At Burger Valley, we&apos;re not just about burgers - we&apos;re about crafting unforgettable dining experiences. Our journey began with a passion for delivering the juiciest, most flavorful burgers in town.</p>
+                    <p className="mb-4">But we didn&apos;t stop there. We believe in offering a diverse range of culinary delights to satisfy every craving. From crispy fries to mouthwatering sandwiches, our menu is crafted with care to please every palate.</p>
+                    <p className="mb-4">As a family-owned establishment, Burger Valley is deeply rooted in the community. We take pride in sourcing our ingredients locally whenever possible, supporting local farmers and businesses while ensuring the freshest, highest-quality ingredients for our customers.</p>
+                    <p className="mb-4">At Burger Valley, we understand that dining out is more than just a meal—it&apos;s an experience. That&apos;s why we strive to create a warm and welcoming atmosphere where friends and families can gather, share delicious food, and create lasting memories together. Whether you&apos;re celebrating a special occasion or simply craving a satisfying meal, Burger Valley is your destination for wholesome, flavorful cuisine.</p>
                     <p>With a commitment to quality ingredients and exceptional service, we invite you to join us on a culinary adventure at Burger Valley.</p>
                 </div>
                 <div className="grid grid-cols-2 gap-4 mt-8">
