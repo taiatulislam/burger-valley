@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
           <a rel="noopener noreferrer" href="#" className="flex justify-center lg:justify-start">
-            <img src={logo} alt="Burger Valley" className='w-[40%] min-w-36'/>
+            <img src={logo} alt="Burger Valley" className='w-[40%] min-w-36 max-w-44'/>
           </a>
         </div>
         <div className="grid grid-cols-1 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-3 justify-center items-center mx-auto">
