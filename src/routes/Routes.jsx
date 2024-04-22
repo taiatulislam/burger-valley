@@ -7,6 +7,8 @@ import Register from "../pages/register/Register";
 import Dashboard from "../pages/dashboard/Dashboard";
 import ContactUs from "../pages/contactUs/ContactUs";
 import AboutUs from "../pages/aboutUs/AboutUs";
+import AllMenus from "../pages/menu/AllMenus";
+import MenuDetails from "../pages/menuDetails/MenuDetails";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/all-foods",
+        element: <AllMenus />,
+      },
+      {
+        path: "/food/:id",
+        element: <MenuDetails />,
+      },
+      {
+        path: "/all-foods/food/:id",
+        element: <MenuDetails />,
       },
       {
         path: "login",

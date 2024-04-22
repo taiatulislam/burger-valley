@@ -60,6 +60,18 @@ const Navbar = () => {
                   >
                     HOME
                   </NavLink>
+                
+                </li>
+                <li className=" px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-white duration-300 hover:opacity-75">
+                <NavLink
+                    to="/all-foods"
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ? "text-[#FF9D00]" : ""
+                    }
+                  >
+                    Menus
+                  </NavLink>
+                
                 </li>
                 <li className=" px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold text-white duration-300 hover:opacity-75">
                   <NavLink
