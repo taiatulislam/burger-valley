@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../../../assets/logo.png'
 import "./manu.css";
 
 const Navbar = () => {
@@ -11,16 +12,19 @@ const Navbar = () => {
 
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 font-primary bg-black duration-300">
-      <div className="w-full px-1 md:px-7 mx-auto flex flex-wrap items-center justify-between">
+      <div className="container w-full px-1 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex items-center justify-between lg:w-auto lg:static lg:block lg:justify-start">
 
           {/* Logo Section Start */}
           <div className='flex items-center gap-4 mr-5'>
-            <a
+            {/* <a
               className="text-xl xl:text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white duration-300"
               href="/"
             >
               Burger Valley
+            </a> */}
+            <a rel="noopener noreferrer" href="#" className="flex justify-center lg:justify-start">
+              <img src={logo} alt="Burger Valley" className='w-20' />
             </a>
           </div>
           {/* Logo Section End */}
