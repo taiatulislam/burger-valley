@@ -24,7 +24,7 @@ const Navbar = () => {
               Burger Valley
             </a> */}
             <a rel="noopener noreferrer" href="#" className="flex justify-center lg:justify-start">
-              <img src={logo} alt="Burger Valley" className='w-20' />
+              <img src={logo} alt="Burger Valley" className='w-20 mr-5' />
             </a>
           </div>
           {/* Logo Section End */}
