@@ -37,7 +37,7 @@ const News_Details = () => {
             <div className="lg:flex px-1 md:px-2 lg:px-4 py-1 lg:py-2 bg-black ">
 
                 {/* left side  */}
-                <div className=" lg:w-8/12 w-full  flex flex-col items-center  rounded-lg shadow  hover:bg-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 px-2 md:px-3 lg:px-4">
+                <div className="container mx-auto w-full  flex flex-col items-center  rounded-lg shadow  hover:bg-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 px-2 md:px-3 lg:px-4">
 
 
                     {/* title image  */}
@@ -110,16 +110,15 @@ const News_Details = () => {
                         {/* tag and like and share section  */}
                         <div className='md:flex items-center justify-between'>
                             {/* tag  */}
-                            <div className=' flex items-center justify-between md:justify-between  md:gap-44 '>
-                                <div className='flex items-center gap-3'>
+                            <div className='flex items-center  md:gap-44 lg:gap-64  justify-between '>
+                                <div className='flex items-center gap-2'>
                                     <h1> Tags : </h1>
                                     <h1 className='text-yellow-500 '>Burger ,</h1>
                                     <h1 className='text-yellow-500 '>Coffee  </h1>
                                 </div>
 
-
                                 {/* like and dislike button  */}
-                                <div className='flex items-center gap-4'>
+                                <div className='flex items-center gap-4 '>
                                     {/* like button */}
                                     <button type="button" className="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
 
@@ -143,11 +142,11 @@ const News_Details = () => {
                             </div>
 
                             {/* share now icon  */}
-                            <div className='flex items-center md:gap-6  gap-3 mt-6 '>
+                            <div className='flex items-center md:gap-6  gap-3 md:mt-0 mt-6 '>
                                 <h1 className='text-sm md:text-md lg:text-lg '> Share Now : </h1>
-                                <button className='md:text-2xl text-yellow-500'> <FaFacebook></FaFacebook>  </button>
-                                <button className='md:text-2xl text-yellow-500'> <FaLinkedin ></FaLinkedin>  </button>
-                                <button className='md:text-2xl text-yellow-500'> <FaTwitter ></FaTwitter>  </button>
+                                <button className='md:text-xl lg:text-2xl text-yellow-500'> <FaFacebook></FaFacebook>  </button>
+                                <button className='md:text-xl lg:text-2xl text-yellow-500'> <FaLinkedin ></FaLinkedin>  </button>
+                                <button className='md:text-xl lg:text-2xl text-yellow-500'> <FaTwitter ></FaTwitter>  </button>
                             </div>
 
                         </div>
@@ -161,23 +160,27 @@ const News_Details = () => {
 
                             <form className=" mx-auto">
                                 <div className="mb-5">
-                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your Commitments </label>
+                                    <div className='flex items-center gap-2'>
+                                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your Commitments </label>
+                                        <span className='text-red-500 text-2xl '>*</span>
+                                    </div>
                                     <textarea className="bg-gray-900 text-gray-200 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="commit" id="" cols="30" rows="10" placeholder="Commitments" required ></textarea>
 
 
                                 </div>
                                 <div className="mb-5">
-                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your Name</label>
+                                    <div className='flex items-center gap-2'>
+                                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your Name</label>
+                                        <span className='text-red-500 text-2xl '>*</span>
+                                    </div>
                                     <input type="email" id="email" className="bg-gray-900 text-gray-200 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="User Name" required />
                                 </div>
                                 <div className="mb-5">
-                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
+                                    <div className='flex items-center gap-2'>
+                                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
+                                        <span className='text-red-500 text-2xl '>*</span>
+                                    </div>
                                     <input type="email" id="email" className="bg-gray-900 text-gray-200 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="user@gmail.com" required />
-                                </div>
-
-                                <div className="mb-5">
-                                    <label htmlFor="password" className="block mb-2 text-sm font-mediumd text-white">Your password</label>
-                                    <input type="password" id="password" className="bg-gray-900 border border-gray-300 text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Password" required />
                                 </div>
 
                                 <div className="mb-5">
