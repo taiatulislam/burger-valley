@@ -98,9 +98,9 @@ const Add_News = () => {
                     </label>
                     <select className="w-full px-4 py-2 text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500 " id="category" {...register("category")}  required  >
                         <option value="" className='text-gray-200'> Selected Category</option>
-                        <option value="Burger">Burger</option>
-                        <option value="Digital Marketing">Digital Marketing </option>
-                        <option value="Graphics Design">Graphics Design </option>
+                        <option value="burger">Burger</option>
+                        <option value="snack">Snack </option>
+                        <option value="beverage">Beverage </option>
                     </select>
                 </div>
 
