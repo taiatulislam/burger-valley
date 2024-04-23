@@ -12,6 +12,7 @@ import AllMenus from "../pages/menu/AllMenus";
 import MenuDetails from "../pages/menuDetails/MenuDetails";
 import News_Details from "../pages/news_section/News_Details";
 import Add_News from "../pages/news_section/Add_News";
+import Faq from "../pages/faq/Faq";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "about-us",
         element: <AboutUs />
+      },
+      {
+        path: "faq",
+        element: <Faq />
       },
     ],
   },
