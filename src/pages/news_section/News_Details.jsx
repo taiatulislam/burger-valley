@@ -1,39 +1,22 @@
 import React, { useState } from 'react';
 import { FaBarsStaggered, FaCheck } from 'react-icons/fa6';
-import { RxCross2 } from "react-icons/rx";
 import News_Features from './News_Features';
 import { AiFillDislike } from "react-icons/ai";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Offer_Card from './Offer_Card';
+import { useLoaderData } from 'react-router-dom';
+import useGetAllNews from '../../Hooks/userGetAllnews';
 
 
 const News_Details = () => {
 
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-
-    const toggleSidebar = () => {
-        setSidebarOpen(!sidebarOpen);
-    };
-
+    const [allNewsData] = useGetAllNews()
+    console.log(allNewsData);
+    const newsData = useLoaderData()
+    console.log(newsData);
 
     return (
         <>
-            <div className={`lg:hidden fixed top-0 left-0 w-full h-full z-50 bg-black bg-opacity-50 ${sidebarOpen ? 'block' : 'hidden'}`} onClick={toggleSidebar}>
-
-            </div>
-            <div className={`lg:hidden fixed top-0 left-0 h-full z-50 bg-black w-4/5 md:w-3/5  transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                <div className="flex justify-end p-4">
-                    <button onClick={toggleSidebar} className="text-white"><RxCross2></RxCross2></button>
-                </div>
-                <div className="p-4">
-                    <News_Features />
-                </div>
-            </div>
-            <div>
-                <button className="lg:hidden px-2 py-2" onClick={toggleSidebar}> <FaBarsStaggered></FaBarsStaggered> </button>
-            </div>
-
-
             <div className="lg:flex px-1 md:px-2 lg:px-4 py-1 lg:py-2 bg-black ">
 
                 {/* left side  */}
@@ -41,15 +24,17 @@ const News_Details = () => {
 
 
                     {/* title image  */}
-                    <img className="object-cover w-full rounded-t-lg h-[400px] " src="https://img.freepik.com/premium-photo/amazing-delicious-cheese-burger_727939-299.jpg" alt="" />
+                    <img className="object-cover w-full rounded-t-lg h-[400px] " src={newsData?.image} alt="" />
 
                     <div className='text-white px-1 md:px-2 lg:px-4 py-1 lg:py-2'>
 
                         <div className=' py-4'>
                             {/* title and description and other info */}
-                            <h5 className="mb-2  md:text-2xl lg:text-2xl text-xl font-bold tracking-tight text-white  dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                            <p className="mb-3 md:text-md lg:text-lg text-sm font-normal text-white  dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                            <h1> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, quo dicta architecto numquam quaerat magni! Sint minima aliquid nihil accusamus corporis. Rem quidem neque similique laudantium! Hic porro reiciendis dicta totam dolor doloremque magni similique ut explicabo in, id suscipit numquam ea alias ad non. Nobis omnis quos optio qui? </h1>
+                            <h5 className="mb-2  md:text-2xl lg:text-2xl text-xl font-bold tracking-tight text-white  dark:text-white"> {newsData?.title} </h5>
+
+                            <h1 className="mb-3 md:text-md lg:text-lg text-sm font-normal text-white  dark:text-gray-400">
+                                {newsData?.description}
+                            </h1>
 
 
                             <h3 className='text-white  uppercase font-bold text-2xl lg:mt-6 md:mt-4 mt-2'> content writer for website  </h3>
@@ -207,7 +192,7 @@ const News_Details = () => {
 
                 {/* right side  */}
                 <div className="hidden lg:block lg:w-5/12 px-2 py-4">
-                    <News_Features />
+                    <News_Features allNewsData={allNewsData} />
                     <Offer_Card></Offer_Card>
                 </div>
             </div>

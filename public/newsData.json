@@ -22,6 +22,26 @@
     {
       "id": "2",
       "image": "https://img.freepik.com/premium-photo/amazing-delicious-cheese-burger_727939-299.jpg",
+      "title": "Title 1",
+      "author_name": "Author 1",
+      "author_email": "abc@gmail.com",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolorum placeat consectetur perferendis minus sequi illo facilis ad similique, vero labore eaque eius ipsa iure consequuntur? Cum natus iure et non ullam voluptatibus animi obcaecati nesciunt ipsa porro nihil deserunt, ratione amet veniam, repellendus recusandae ad ex necessitatibus? Numquam, repellat? 1",
+      "category": "Category 1",
+      "likes": [],
+      "dislikes": [],
+      "publish_date": "2024-04-22",
+      "tags": ["tag1", "tag2"],
+      "comments": [
+        {
+          "userEmail": "user1@example.com",
+          "userName": "User 1",
+          "comment": "Comment 1"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "image": "https://img.freepik.com/premium-photo/amazing-delicious-cheese-burger_727939-299.jpg",
       "title": "Title 2",
       "author_name": "Author 2",
       "author_email": "abc@gmail.com",
