@@ -8,7 +8,7 @@ const useGetAllNews = () => {
     const { data: allNewsData = [] } = useQuery({
         queryKey: ["allNewsData"],
         queryFn: async () => {
-            const res = await instance.get("/news")
+            const res = await instance.get("/api/v1/news")
             return res.data
         }
     })
@@ -16,3 +16,4 @@ const useGetAllNews = () => {
 };
 
 export default useGetAllNews;
+
