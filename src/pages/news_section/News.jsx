@@ -3,8 +3,11 @@ import News_Card from './News_Card';
 
 const News = () => {
     return (
-        <div>
+        <div className=''>
             <News_Card></News_Card>
+
+
+            
         </div>
     );
 };

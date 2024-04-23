@@ -1,25 +1,109 @@
-import React, { useState } from 'react';
-import { FaBarsStaggered, FaCheck } from 'react-icons/fa6';
+import React, { useEffect, useState } from 'react';
+import { FaCheck } from 'react-icons/fa6';
 import News_Features from './News_Features';
-import { AiFillDislike } from "react-icons/ai";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Offer_Card from './Offer_Card';
 import { useLoaderData } from 'react-router-dom';
 import useGetAllNews from '../../Hooks/userGetAllnews';
-
 import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
+import useAxios from '../../Hooks/useAxios';
+import { GrLike, GrDislike } from "react-icons/gr";
 
 
 const News_Details = () => {
+
+    const [likes, setLikes] = useState(0);
+    const [dislikes, setDislikes] = useState(0);
+    const [likeColor, setLikeColor] = useState('blue');
+    const [dislikeColor, setDislikeColor] = useState('blue');
+    const [isLiked, setIsLiked] = useState(false); // Add state to track if the post is already liked
+    const [isDisliked, setIsDisliked] = useState(false);
+
+    const instance = useAxios()
 
     const currentPageURL = "burgervalley.com"
 
     const [allNewsData] = useGetAllNews()
     console.log(allNewsData);
 
-    const newsData = useLoaderData()
 
-    console.log(newsData.description.conclusion);
+    const newsData = useLoaderData()
+    const { _id } = newsData;
+    console.log(_id);
+
+
+
+    useEffect(() => {
+        setLikes(newsData?.likes || 0);
+        setDislikes(newsData?.dislikes || 0);
+    }, [newsData]);
+
+
+
+    const handleLike = async () => {
+        if (!isLiked) {
+            setLikes((prevLikes) => prevLikes + 1); // Update likes based on previous state
+            setLikeColor('green');
+            setIsLiked(true);
+    
+            if (isDisliked) {
+                setDislikes((prevDislikes) => prevDislikes - 1); // Decrease dislikes count
+                setDislikeColor('blue');
+                setIsDisliked(false);
+            }
+    
+            try {
+                await instance.patch(`/api/v1/news/${newsData._id}`, { likes: likes + 1 });
+            } catch (error) {
+                console.error('Error updating likes count:', error);
+            }
+        } else {
+            // If already liked, decrease like count and reset like state
+            setLikes((prevLikes) => prevLikes - 1);
+            setLikeColor('blue');
+            setIsLiked(false);
+    
+            try {
+                await instance.patch(`/api/v1/news/${newsData._id}`, { likes: likes - 1 });
+            } catch (error) {
+                console.error('Error updating likes count:', error);
+            }
+        }
+    }
+
+
+
+
+    const handleDislike = async () => {
+        if (!isDisliked) {
+            setDislikes((prevDislikes) => prevDislikes + 1); // Update dislikes based on previous state
+            setDislikeColor('red');
+            setIsDisliked(true);
+
+            if (isLiked) {
+                setLikes((prevLikes) => prevLikes - 1); // Decrease likes count
+                setLikeColor('blue');
+                setIsLiked(false);
+            }
+
+            try {
+                await instance.patch(`/api/v1/news/${newsData._id}`, { dislikes: dislikes + 1 });
+            } catch (error) {
+                console.error('Error updating dislikes count:', error);
+            }
+        } else {
+            // If already disliked, decrease dislike count and reset dislike state
+            setDislikes((prevDislikes) => prevDislikes - 1);
+            setDislikeColor('blue');
+            setIsDisliked(false);
+
+            try {
+                await instance.patch(`/api/v1/news/${newsData._id}`, { dislikes: dislikes - 1 });
+            } catch (error) {
+                console.error('Error updating dislikes count:', error);
+            }
+        }
+    };
 
 
 
@@ -34,24 +118,22 @@ const News_Details = () => {
 
 
                     {/* title image  */}
-                    <img className="object-cover w-full rounded-t-lg h-[400px] " src={newsData?.image} alt="" />
+                    <img className="object-cover w-full rounded-t-lg md:h-[400px] h-[250px] " src={newsData?.image} alt="" />
 
                     <div className='text-white px-1 md:px-2 lg:px-4 py-1 lg:py-2'>
 
                         <div className=' py-4'>
                             {/* title and description and other info */}
-                            <h5 className="mb-2  md:text-2xl lg:text-3xl text-xl font-bold tracking-tight text-white  dark:text-white"> {newsData?.title} </h5>
+                            <h5 className="mb-2  md:text-2xl lg:text-4xl text-xl font-bold tracking-tight text-white  dark:text-white font-oswald md:py-4   "> {newsData?.title} </h5>
 
                             {
-                                newsData?.description?.paragraphs?.map((paragraph, index) => <p key={index} className='py-2'>
+                                newsData?.description?.paragraphs?.map((paragraph, index) => <p key={index} className='md:py-1 py-1 text-sm text-white md:text-md  lg:text-lg  ' >
                                     {paragraph}
                                 </p>)
                             }
 
-                          
 
-
-                            <h3 className='text-white  uppercase font-bold text-2xl lg:mt-6 md:mt-4 mt-2'> content writer for website  </h3>
+                            <h3 className='text-white  uppercase font-bold text-2xl lg:mt-6 md:mt-4 mt-2 font-oswald   '> content writer for website  </h3>
                         </div>
 
 
@@ -69,14 +151,13 @@ const News_Details = () => {
 
                         {/* description  */}
                         <div className='text-white py-2 md:py-3 lg:py-4 mb-10 '>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia ex perferendis accusantium repellat labore esse corrupti, fugiat voluptatum debitis ullam. Nihil tenetur fuga perferendis vitae exercitationem dignissimos enim debitis.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quae officiis quaerat voluptate doloremque, aliquam accusamus, optio eaque reprehenderit rerum eos id ab odit placeat architecto aspernatur alias! Consectetur, mollitia neque eaque rem libero error et. Voluptatem nemo voluptate natus.</p>
+                            <p>Indulge in the timeless taste of our Classic Cheeseburger, where juicy, flame-grilled beef meets the creamy richness of melted cheddar cheese, all nestled between two perfectly toasted sesame seed buns. Every bite is a symphony of flavor, with the savory meat complemented by crisp lettuce, ripe tomatoes, crunchy pickles, and a dollop of our signature tangy burger sauce. Satisfy your cravings with this iconic American favorite, crafted with quality ingredients and served with a side of golden, crispy fries. Dive into a world of deliciousness with our Classic Cheeseburger today!</p>
                         </div>
 
 
 
                         {/* list item */}
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:gap-3 lg:gap-5 gap-1  '>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:gap-3 lg:gap-5 gap-1 '>
 
                             <div>
                                 <h1 className='flex items-center gap-2 '> <span><FaCheck className='text-[#FF9D00] '></FaCheck></span> Lorem, ipsum dolor sit amet consectetur  quis.</h1>
@@ -105,44 +186,39 @@ const News_Details = () => {
 
                         {/*conclusion  */}
                         {newsData?.description?.conclusion ? (
-                            <p className='my-10 '>{newsData?.description?.conclusion}</p>
+                            <p className='my-10 text-sm md:text-md lg:text-lg '>{newsData?.description?.conclusion}</p>
                         ) : (
-                            <p>Conclusion not available</p>
+                            <p className=''>Conclusion not available</p>
                         )}
 
                         {/* tag and like and share section  */}
                         <div className='md:flex items-center justify-between'>
                             {/* tag  */}
-                            <div className='flex items-center  md:gap-44 lg:gap-44  justify-between '>
-                                <div className='flex items-center gap-2'>
+                            <div className='md:flex items-center  md:gap-[110px] '>
+                                <div className='flex items-center gap-2 font-oswald lg:tracking-wide'>
                                     <h1> Tags : </h1>
                                     {newsData?.tags?.map((tag, index) => (
                                         <div key={index}>
-                                            <h1 className='text-[#FF9D00]'> {tag} ,</h1>
+                                            <h1 className='text-[#FF9D00] text-sm md:text-md '> {tag},</h1>
                                         </div>
                                     ))}
 
                                 </div>
 
-                                {/* like and dislike button  */}
-                                <div className='flex items-center gap-4 '>
-                                    {/* like button */}
-                                    <button type="button" className="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
+                                <div>
 
-                                        <svg className="md:w-4 md:h-4 w-3 h-3 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                            <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z" />
-                                        </svg>
-
-
-                                    </button>
-
-                                    {/* dislike button */}
-                                    <button type="button" className="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
-
-                                        <AiFillDislike className='md:w-4 md:h-4 w-3 h-3'></AiFillDislike>
-
-
-                                    </button>
+                                    <div className='flex gap-10 items-center mt-4 md:mt-0 lg:mt-0 '>
+                                        <p>{likes}</p>
+                                        <p>{dislikes}</p>
+                                    </div>
+                                    <div className='flex items-center gap-6 mt-2 '>
+                                        <button onClick={handleLike} type="button" className={`text-${likeColor}-700 border border-${likeColor}-700 hover:bg-${likeColor}-700 hover:text-white  focus:ring-4 focus:outline-none focus:ring-${likeColor}-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-${likeColor}-500 dark:text-${likeColor}-500 dark:hover:text-white dark:focus:ring-${likeColor}-800 dark:hover:bg-${likeColor}-500`}>
+                                            <GrLike className='md:w-4 md:h-4 w-3 h-3'></GrLike>
+                                        </button>
+                                        <button onClick={handleDislike} type="button" className={`text-${dislikeColor}-700 border border-${dislikeColor}-700 hover:bg-${dislikeColor}-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-${dislikeColor}-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-${dislikeColor}-500 dark:text-${dislikeColor}-500 dark:hover:text-white dark:focus:ring-${dislikeColor}-800 dark:hover:bg-${dislikeColor}-500`}>
+                                            <GrDislike className='md:w-4 md:h-4 w-3 h-3'></GrDislike>
+                                        </button>
+                                    </div>
                                 </div>
 
 
@@ -150,11 +226,11 @@ const News_Details = () => {
 
                             {/* share now icon  */}
                             <div className='flex items-center md:gap-6  gap-3 md:mt-0 mt-6 '>
-                                <h1 className='text-sm md:text-md lg:text-lg '> Share Now : </h1>
+                                <h1 className='text-sm md:text-md lg:text-lg font-oswald lg:tracking-wide'> Share Now : </h1>
                                 <FacebookShareButton
                                     url={currentPageURL}
                                     quote='Please Share This Post'
-                                    hashtag='#BurgerVelley'
+                                    hashtag='#BurgerValley'
                                 >
                                     <button className='md:text-xl lg:text-2xl text-[#FF9D00]'> <FaFacebook></FaFacebook>  </button>
                                 </FacebookShareButton>
@@ -162,7 +238,7 @@ const News_Details = () => {
                                 <LinkedinShareButton
                                     url={currentPageURL}
                                     quote='Please Share This Post'
-                                    hashtag='#BurgerVelley'
+                                    hashtag='#BurgerValley'
                                 >
                                     <button className='md:text-xl lg:text-2xl text-[#FF9D00]'> <FaLinkedin ></FaLinkedin>  </button>
                                 </LinkedinShareButton>
@@ -171,7 +247,7 @@ const News_Details = () => {
                                 <TwitterShareButton
                                     url={currentPageURL}
                                     quote='Please Share This Post'
-                                    hashtag='#BurgerVelley'
+                                    hashtag='#BurgerValley'
                                 >
                                     <button className='md:text-xl lg:text-2xl text-[#FF9D00]'> <FaTwitter ></FaTwitter>  </button>
                                 </TwitterShareButton>
@@ -182,7 +258,7 @@ const News_Details = () => {
                         <div className='border-b-2 md:my-8 lg:my-10 my-4 border-gray-500 '></div>
 
 
-                        <div className=' '>
+                        <div className='font-oswald lg:tracking-wide '>
                             <h1 className='text-2xl font-bold py-4 '> Leave  Reply </h1>
                             <p className='mb-6'> Please Share Your Opinio Now  .</p>
 
@@ -228,15 +304,11 @@ const News_Details = () => {
                         </div>
 
                     </div>
-
-
-
                 </div>
 
                 {/* right side  */}
-                <div className="hidden lg:block lg:w-5/12 px-2 py-4">
+                <div className=" lg:block lg:w-5/12 px-2  text-white font-oswald lg:tracking-wide">
                     <News_Features allNewsData={allNewsData} />
-
                     <Offer_Card></Offer_Card>
                 </div>
             </div>
