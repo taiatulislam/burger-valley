@@ -7,16 +7,12 @@ import MenuCard from "./MenuCard";
 
 const AllMenus = () => {
   const [allMenuData] = useAllMenus();
-  
   console.log(allMenuData);
-
- 
   let tabs = [
     { id: "burger", label: "Food" },
     { id: "snack", label: "Snack" },
     { id: "beverage", label: "Beverage" },
   ];
-
   let [activeTab, setActiveTab] = useState(tabs[0]?.id);
   const CurrentTab = allMenuData?.filter(
     (food) => food?.category === activeTab
@@ -31,8 +27,8 @@ const AllMenus = () => {
             onClick={() => {
               setActiveTab(tab?.id);
             }}
-            className={`${activeTab === tab?.id ? "" : "hover:text-[#91C96F]"}
-                                relative rounded-full px-3  py-1.5 text-base font-medium  transition text-white focus-visible:outline-2`}
+            className={`${activeTab === tab?.id ? "" : ""}
+                                relative rounded-xl px-4 bg-neutral-900  py-3 text-base font-medium  transition text-white focus-visible:outline-2`}
             style={{
               WebkitTapHighlightColor: "transparent",
             }}
@@ -40,7 +36,7 @@ const AllMenus = () => {
             {activeTab === tab?.id && (
               <motion.span
                 layoutId="bubble"
-                className="absolute inset-0 z-10  bg-yellow-400 mix-blend-multiply"
+                className="absolute inset-0 z-10  bg-yellow-500 mix-blend-hard-light"
                 style={{ borderRadius: 9 }}
                 transition={{ type: "spring", bounce: -10, duration: 0.6 }}
               />

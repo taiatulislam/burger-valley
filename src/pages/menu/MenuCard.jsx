@@ -3,7 +3,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAxios from "../../Hooks/useAxios";
 const MenuCard = ({food}) => {
-    const { name,image,price,_id,category,discount } = food || {} 
+    const { name,image,price,_id,category,discount,description } = food || {} 
     const instance = useAxios()
      const handleAddToWishlist = () => {
     // const user_name = currentUser?.name;
@@ -34,10 +34,10 @@ console.log(wishlistData);
     return (
         <div>
              <div key={_id} className="relative">
-              <div className="lg:w-[280px]">
-                <div className="p-4 lg:w-[270px] border-slate-800 border-2 rounded-xl">
+              <div className="lg:w-[280px] ">
+                <div className="p-4 lg:w-[270px] bg-neutral-800 border-slate-800 border-2 rounded-xl">
                   <img
-                    className="h-[225px] mx-auto w-72 rounded-xl"
+                    className="h-[225px]  bg-cover mx-auto w-72 rounded-xl"
                     src={image}
                     alt=""
                   />
@@ -46,19 +46,20 @@ console.log(wishlistData);
                 <h5 className="text-xl font-semibold tracking-tight  text-white">
                   {name}
                 </h5>
+                <p className="text-white text-sm pt-3">{description}</p>
 
-                <div className="flex mt-3 items-center justify-between">
-                  <span className="text-xl font-bold text-yellow-500 ">
+                <div className="flex mt-5 items-center justify-between">
+                  <span className="text-2xl font-bold text-yellow-500 ">
                     ${price}
                   </span>
                   <Link to={`food/${_id}`}>
-                    <button className=" text-white font-bold text-2xl mr-5 ">
+                    <button className=" text-white font-bold text-2xl mr-5 mt-3 ">
                     <GrView />
                     </button>
                   </Link>
                 </div>
               </div>
-              <div onClick={handleAddToWishlist} className="absolute top-5 right-8">
+              <div onClick={handleAddToWishlist} className="absolute top-5 right-6 ">
                 <button className="text-red-500 mr-4 text-2xl">
                   <FaRegHeart />
                 </button>
