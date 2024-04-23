@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { FaRegClock } from "react-icons/fa";
-import News_Category from './News_Category';
-
 
 
 const News_Features = ({ allNewsData }) => {
@@ -9,11 +7,11 @@ const News_Features = ({ allNewsData }) => {
 
 
     return (
-        <div className='px-2 py-1 text-white'>
+        <div className='px-2 py-2 text-white font-oswald lg:tracking-wide'>
 
-            <div >
-                <h1 className='text-2xl '>News Features</h1>
-                <div className=' border-b-4 border-[#FF9D00] py-1 w-16  '></div>
+            <div className='md:pb-4 pb-2 lg:pb-4 '>
+                <h1 className='text-2xl '> Features News </h1>
+                <div className=' border-b-4 border-[#FF9D00] py-1 w-16'></div>
             </div>
 
             {allNewsData?.slice(0, 3)?.map((news) => {
@@ -24,18 +22,17 @@ const News_Features = ({ allNewsData }) => {
                     <div key={news._id}>
                         {/* News features */}
                         <div className='py-2'>
-                            <h1>{news?.title}</h1>
-                            <p className='flex items-center gap-1'>
+                            <h1 className='text-md md:text-lg lg:text-xl'>{news?.title}</h1>
+                            <p className='flex items-center gap-2 '>
                                 <span className='text-[#FF9D00]'><FaRegClock /></span>
-                                <span className='text-lg'>{formattedDate}</span>
+                                <span className='text-sm py-1'>{formattedDate}</span>
                             </p>
                         </div>
                     </div>
                 );
             })}
 
-
-            <News_Category></News_Category>
+          
 
         </div>
     );
