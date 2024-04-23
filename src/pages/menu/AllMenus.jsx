@@ -2,55 +2,23 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAllMenus from "../../Hooks/useAllMenus";
+import { GrView } from "react-icons/gr";
 
 const AllMenus = () => {
-  const NewFoods = [
-    {
-      _id: 1,
-      title: "Food ",
-      category: "Food",
-
-      Price: 200,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      _id: 2,
-      title: "Snack ",
-      category: "Snack",
-
-      Price: 250,
-      description:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      _id: 3,
-      title: "Beverage ",
-      category: "Beverage",
-
-      Price: 300,
-      description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      _id: 5,
-      title: "Beverage ",
-      category: "Beverage",
-
-      Price: 300,
-      description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-
-  ];
+  const [allMenuData] = useAllMenus();
+  console.log(allMenuData);
 
   let tabs = [
-    { id: "Food", label: "Food" },
-    { id: "Snack", label: "Snack" },
-    { id: "Beverage", label: "Beverage" },
+    { id: "burger", label: "Food" },
+    { id: "snack", label: "Snack" },
+    { id: "beverage", label: "Beverage" },
   ];
 
   let [activeTab, setActiveTab] = useState(tabs[0]?.id);
-  const CurrentTab = NewFoods?.filter((food) => food?.category === activeTab);
+  const CurrentTab = allMenuData?.filter(
+    (food) => food?.category === activeTab
+  );
 
   return (
     <div className="flex flex-col items-center justify-center py-10">
@@ -79,35 +47,35 @@ const AllMenus = () => {
           </button>
         ))}{" "}
       </div>
-      <div className="container grid grid-cols-1 mt-3 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container grid grid-cols-1 mt-3 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {CurrentTab?.map((food, index) => (
           <div key={index}>
             <div key={food?._id} className="relative">
-              <div className="lg:w-[270px]">
+              <div className="lg:w-[280px]">
                 <div className="p-4 lg:w-[270px] border-slate-800 border-2 rounded-xl">
                   <img
                     className="h-[225px] mx-auto w-72 rounded-xl"
-                    src="https://www.foodandwine.com/thmb/pwFie7NRkq4SXMDJU6QKnUKlaoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ultimate-Veggie-Burgers-FT-Recipe-0821-5d7532c53a924a7298d2175cf1d4219f.jpg"
+                    src={food?.image}
                     alt=""
                   />
                 </div>
-                
-                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {food.title}
-                  </h5>
-               
-                <div className="flex items-center justify-between">
+
+                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  {food.name}
+                </h5>
+
+                <div className="flex mt-3 items-center justify-between">
                   <span className="text-xl font-bold text-gray-900 dark:text-white">
-                    ${food.Price}
+                    ${food.price}
                   </span>
                   <Link to={`food/${food?._id}`}>
-                <button className="bg-yellow-400 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded z-10">
-                  View Details
-                </button>
-              </Link>
+                    <button className=" text-black font-bold text-2xl mr-5 ">
+                    <GrView />
+                    </button>
+                  </Link>
                 </div>
               </div>
-              <div className="absolute top-5 right-14">
+              <div className="absolute top-5 right-8">
                 <button className="text-red-500 mr-4 text-2xl">
                   <FaRegHeart />
                 </button>
