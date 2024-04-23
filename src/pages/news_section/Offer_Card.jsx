@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 const Offer_Card = () => {
     return (
-        <div className='text-white px-2 '>
+        <div className='text-white px-2 md:mt-6 mt-1'>
             <div className="relative overflow-hidden rounded-lg bg-cover bg-no-repeat p-12 text-center" style={{ backgroundImage: "url('https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/fi/art/5feb2c2f49aff.jpeg')", height: '300px', width: "100%" }}>
                 <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
                     <div className="flex h-full items-center justify-center">
@@ -21,15 +22,7 @@ const Offer_Card = () => {
                     </div>
                 </div>
             </div>
-            {/* <p className={`mb-3 font-normal text-gray-300 ${expandedNews[news._id] ? 'block' : ''} dark:text-gray-400`}>
-                {expandedNews[news?._id] ? news?.description : `${news?.description?.slice(0, 180)}${news?.description?.length > 40 ? '...' : ''}`}
 
-                {news?.description?.length > 40 && (
-                    <button onClick={() => handleReadMore(news._id)} className="inline-flex items-center  px-1 text-md font-medium text-center text-[#FF9D00] rounded-lg focus:outline-none">
-                        {expandedNews[news?._id] ? 'Show Less' : 'Read Now'}
-                    </button>
-                )}
-            </p> */}
 
 
         </div>
