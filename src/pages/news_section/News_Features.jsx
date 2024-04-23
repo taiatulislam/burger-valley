@@ -25,7 +25,7 @@ const News_Features = ({ allNewsData }) => {
                             <h1 className='text-md md:text-lg lg:text-xl'>{news?.title}</h1>
                             <p className='flex items-center gap-2 '>
                                 <span className='text-[#FF9D00]'><FaRegClock /></span>
-                                <span className='text-sm py-1'>{formattedDate}</span>
+                                <span className='text-sm py-1 '>{formattedDate}</span>
                             </p>
                         </div>
                     </div>
