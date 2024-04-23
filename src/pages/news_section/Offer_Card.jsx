@@ -11,7 +11,7 @@ const Offer_Card = () => {
                             <h4 className="mb-6 text-md font-semibold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora cupiditate, tenetur voluptatum nemo at inventore?</h4>
                             <button
                                 type="button"
-                                className="rounded  px-7 pb-[8px] pt-[10px] text-xl font-medium leading-normal text-yellow-500  transition duration-150 ease-in-out   hover:bg-opacity-50  dark:hover:bg-opacity-50"
+                                className="rounded  px-7 pb-[8px] pt-[10px] text-xl font-medium leading-normal text-[#FF9D00]  transition duration-150 ease-in-out   hover:bg-opacity-50  dark:hover:bg-opacity-50"
                             >
                                 Get Started
                             </button>
@@ -19,6 +19,15 @@ const Offer_Card = () => {
                     </div>
                 </div>
             </div>
+            {/* <p className={`mb-3 font-normal text-gray-300 ${expandedNews[news._id] ? 'block' : ''} dark:text-gray-400`}>
+                {expandedNews[news?._id] ? news?.description : `${news?.description?.slice(0, 180)}${news?.description?.length > 40 ? '...' : ''}`}
+
+                {news?.description?.length > 40 && (
+                    <button onClick={() => handleReadMore(news._id)} className="inline-flex items-center  px-1 text-md font-medium text-center text-[#FF9D00] rounded-lg focus:outline-none">
+                        {expandedNews[news?._id] ? 'Show Less' : 'Read Now'}
+                    </button>
+                )}
+            </p> */}
 
 
         </div>

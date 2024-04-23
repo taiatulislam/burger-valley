@@ -50,7 +50,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/news_details/:id",
-        element: <News_Details></News_Details>
+        element: <News_Details></News_Details>,
+        loader: ({ params }) => fetch(`https://burger-valley-server.vercel.app/api/v1/news/${params.id}`)
       },
       {
         path: "add_news",
