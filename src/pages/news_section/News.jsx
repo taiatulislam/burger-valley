@@ -3,7 +3,7 @@ import News_Card from './News_Card';
 
 const News = () => {
     return (
-        <div>
+        <div className='font-oswald lg:tracking-wide'>
             <News_Card></News_Card>
         </div>
     );
