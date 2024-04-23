@@ -7,11 +7,18 @@ import Offer_Card from './Offer_Card';
 import { useLoaderData } from 'react-router-dom';
 import useGetAllNews from '../../Hooks/userGetAllnews';
 import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import News_Category from './News_Category';
+import axios from 'axios';
 
 
 
 const News_Details = () => {
+
+    const [likes, setLikes] = useState(0);
+    const [dislikes, setDislikes] = useState(0);
+    const [likeColor, setLikeColor] = useState('blue');
+    const [dislikeColor, setDislikeColor] = useState('blue')
+
+
 
     const currentPageURL = "burgervalley.com"
 
@@ -20,19 +27,29 @@ const News_Details = () => {
 
     const newsData = useLoaderData()
 
-    console.log(newsData.description.conclusion);
+    const handleLike = async (id) => {
+        setLikes(likes + 1);
+        setLikeColor('green');
+        setDislikeColor('blue');
+        try {
+            await axios.patch(`/api/v1/news${id}`, { likes: likes + 1 });
 
+        } catch (error) {
+            console.error('Error updating likes count:', error);
+        }
+    };
 
-    const [tabs] = useState([
-        { id: "all", label: "All" },
-        { id: "burger", label: "Burger" },
-        { id: "snack", label: "Snack" },
-        { id: "beverage", label: "Beverage" },
-    ]);
-
-    let [activeTab, setActiveTab] = useState(tabs[0]?.id);
-    const CurrentTab = activeTab === "all" ? allNewsData : allNewsData?.filter((food) => food?.category === activeTab);
-
+    const handleDislike = async (id) => {
+        setLikes(likes - 1);
+        setDislikes(dislikes + 1);
+        setLikeColor('blue');
+        setDislikeColor('red');
+        try {
+            await axios.patch(`/api/v1/news${id}`, { dislikes: dislikes + 1 });
+        } catch (error) {
+            console.error('Error updating dislikes count:', error);
+        }
+    };
 
 
 
@@ -54,13 +71,13 @@ const News_Details = () => {
                             <h5 className="mb-2  md:text-2xl lg:text-4xl text-xl font-bold tracking-tight text-white  dark:text-white font-oswald md:py-4   "> {newsData?.title} </h5>
 
                             {
-                                newsData?.description?.paragraphs?.map((paragraph, index) => <p key={index} className='md:py-2 py-1 text-sm text-white md:text-md  lg:text-lg  font-oswald  lg:tracking-wide ' >
+                                newsData?.description?.paragraphs?.map((paragraph, index) => <p key={index} className='md:py-1 py-1 text-sm text-white md:text-md  lg:text-lg  ' >
                                     {paragraph}
                                 </p>)
                             }
 
 
-                            <h3 className='text-white  uppercase font-bold text-2xl lg:mt-6 md:mt-4 mt-2 font-oswald  lg:tracking-wide '> content writer for website  </h3>
+                            <h3 className='text-white  uppercase font-bold text-2xl lg:mt-6 md:mt-4 mt-2 font-oswald   '> content writer for website  </h3>
                         </div>
 
 
@@ -77,14 +94,14 @@ const News_Details = () => {
                         </div>
 
                         {/* description  */}
-                        <div className='text-white py-2 md:py-3 lg:py-4 mb-10 font-oswald lg:tracking-wide'>
+                        <div className='text-white py-2 md:py-3 lg:py-4 mb-10 '>
                             <p>Indulge in the timeless taste of our Classic Cheeseburger, where juicy, flame-grilled beef meets the creamy richness of melted cheddar cheese, all nestled between two perfectly toasted sesame seed buns. Every bite is a symphony of flavor, with the savory meat complemented by crisp lettuce, ripe tomatoes, crunchy pickles, and a dollop of our signature tangy burger sauce. Satisfy your cravings with this iconic American favorite, crafted with quality ingredients and served with a side of golden, crispy fries. Dive into a world of deliciousness with our Classic Cheeseburger today!</p>
                         </div>
 
 
 
                         {/* list item */}
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:gap-3 lg:gap-5 gap-1 font-oswald lg:tracking-wide '>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:gap-3 lg:gap-5 gap-1 '>
 
                             <div>
                                 <h1 className='flex items-center gap-2 '> <span><FaCheck className='text-[#FF9D00] '></FaCheck></span> Lorem, ipsum dolor sit amet consectetur  quis.</h1>
@@ -113,9 +130,9 @@ const News_Details = () => {
 
                         {/*conclusion  */}
                         {newsData?.description?.conclusion ? (
-                            <p className='my-10 text-sm md:text-md lg:text-lg font-oswald lg:tracking-wide'>{newsData?.description?.conclusion}</p>
+                            <p className='my-10 text-sm md:text-md lg:text-lg '>{newsData?.description?.conclusion}</p>
                         ) : (
-                            <p className='font-oswald lg:tracking-wide'>Conclusion not available</p>
+                            <p className=''>Conclusion not available</p>
                         )}
 
                         {/* tag and like and share section  */}
@@ -133,33 +150,24 @@ const News_Details = () => {
                                 </div>
 
                                 <div>
+
+
+
                                     {/* like and dislike button  */}
-                                    <div className='flex gap-10 items-center mt-4 md:mt-0 lg:mt-0 font-oswald lg:tracking-wide'>
-                                        <p> {newsData.likes}</p>
-                                        <p>
-                                            {newsData.dislikes}
-                                        </p>
+                                    <div className='flex gap-10 items-center mt-4 md:mt-0 lg:mt-0 '>
+                                        <p>{newsData?.likes}</p>
+                                        <p>{newsData?.dislikes}</p>
                                     </div>
-                                    <div className='flex items-center gap-6 mt-2 font-oswald lg:tracking-wide'>
-
-                                        {/* like button */}
-                                        <button type="button" className="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
-
-                                            <svg className="md:w-4 md:h-4 w-3 h-3 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                                <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z" />
-                                            </svg>
-
-
+                                    <div className='flex items-center gap-6 mt-2 '>
+                                        <button onClick={handleLike} type="button" className={`text-${likeColor}-700 border border-${likeColor}-700 hover:bg-${likeColor}-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-${likeColor}-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-${likeColor}-500 dark:text-${likeColor}-500 dark:hover:text-white dark:focus:ring-${likeColor}-800 dark:hover:bg-${likeColor}-500`}>
+                                            <FaCheck className='md:w-4 md:h-4 w-3 h-3'></FaCheck>
                                         </button>
-
-                                        {/* dislike button */}
-                                        <button type="button" className="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
-
+                                        <button onClick={handleDislike} type="button" className={`text-${dislikeColor}-700 border border-${dislikeColor}-700 hover:bg-${dislikeColor}-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-${dislikeColor}-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-${dislikeColor}-500 dark:text-${dislikeColor}-500 dark:hover:text-white dark:focus:ring-${dislikeColor}-800 dark:hover:bg-${dislikeColor}-500`}>
                                             <AiFillDislike className='md:w-4 md:h-4 w-3 h-3'></AiFillDislike>
-
-
                                         </button>
                                     </div>
+
+
                                 </div>
 
 
@@ -250,9 +258,6 @@ const News_Details = () => {
                 {/* right side  */}
                 <div className=" lg:block lg:w-5/12 px-2  text-white font-oswald lg:tracking-wide">
                     <News_Features allNewsData={allNewsData} />
-                    
-                   <News_Category tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} ></News_Category>
-
                     <Offer_Card></Offer_Card>
                 </div>
             </div>

@@ -71,7 +71,7 @@ const News_Card = () => {
 
                                     {
                                         (news?.description?.paragraphs?.slice(0, 2))?.map((paragraph, index) => (
-                                            <p key={index} className='lg:py-2 py-1 text-sm md:text-md font-oswald lg:tracking-wide text-white'>
+                                            <p key={index} className='lg:py-2 py-1 text-sm md:text-md  text-white'>
                                                 {paragraph}
                                             </p>
                                         ))
