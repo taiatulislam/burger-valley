@@ -28,7 +28,7 @@ const AllMenus = () => {
               setActiveTab(tab?.id);
             }}
             className={`${activeTab === tab?.id ? "" : ""}
-                                relative rounded-xl px-4 bg-neutral-900  py-3 text-base font-medium  transition text-white focus-visible:outline-2`}
+                                relative rounded-xl px-4 bg-[#171717]  py-3 text-base font-medium  transition text-white focus-visible:outline-2`}
             style={{
               WebkitTapHighlightColor: "transparent",
             }}
