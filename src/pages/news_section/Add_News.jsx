@@ -190,10 +190,7 @@ const Add_News = () => {
                         />
                         {/* {errors.description && <p className="text-red-500 text-xs italic">Description is required</p>} */}
                     </div>
-
                 </div>
-
-
 
                 <div className="flex items-center justify-between">
                     <button
