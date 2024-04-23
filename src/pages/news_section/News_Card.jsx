@@ -55,17 +55,7 @@ const News_Card = () => {
             <div className={`lg:hidden fixed top-0 left-0 w-full h-full z-50 bg-black bg-opacity-50 ${sidebarOpen ? 'block' : 'hidden'}`} onClick={toggleSidebar}>
 
             </div>
-            <div className={`lg:hidden fixed top-0 left-0 h-full z-50 bg-black w-4/5 md:w-3/5  transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                <div className="flex justify-end p-4">
-                    <button onClick={toggleSidebar} className="text-white"><RxCross2></RxCross2></button>
-                </div>
-                <div className="p-4">
-                    <News_Features />
-                </div>
-            </div>
-            <div>
-                <button className="lg:hidden px-2 py-2" onClick={toggleSidebar}> <FaBarsStaggered></FaBarsStaggered> </button>
-            </div>
+         
             <div className="lg:flex bg-black ">
                 <section className=" container mx-auto  w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 px-2 py-4 ">
                     {
@@ -105,7 +95,7 @@ const News_Card = () => {
                     }
 
                 </section>
-                <div className="hidden lg:block lg:w-5/12 px-2 py-4">
+                <div className=" lg:block lg:w-5/12 px-2 py-4">
                     <News_Features />
                     <Offer_Card></Offer_Card>
                 </div>
