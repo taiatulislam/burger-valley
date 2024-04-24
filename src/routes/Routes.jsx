@@ -13,6 +13,7 @@ import MenuDetails from "../pages/menuDetails/MenuDetails";
 import News_Details from "../pages/news_section/News_Details";
 import Add_News from "../pages/news_section/Add_News";
 import Faq from "../pages/faq/Faq";
+import AllNews from "../pages/news_section/AllNews";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <News></News>
+      },
+      {
+        path: "all-news",
+        element: <AllNews></AllNews>
       },
       {
         path: "/news_details/:id",
