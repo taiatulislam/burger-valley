@@ -10,12 +10,6 @@ const Add_News = () => {
     const [tags, setTags] = useState([]);
 
 
-
-
-
-
-
-
     // tags information
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -85,7 +79,7 @@ const Add_News = () => {
                             Title
                         </label>
                         <input
-                            className="w-full px-4 py-2 text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500"
+                            className="w-full px-4 py-2 text-white border rounded-lg bg-neutral-800  focus:outline-none focus:border-blue-500"
                             id="title"
                             type="text"
                             placeholder="Title"

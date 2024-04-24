@@ -98,14 +98,24 @@ const AllNews = () => {
                 <div className=" p-5 rounded-lg bg-50-50">
                     <div className='flex items-center justify-between'>
                         <h1 className="text-2xl font-bold pb-1 font-oswald ">All News </h1>
-                        <div className='py-2 px-1 md:w-44'>
-                            <select
-                                className=' w-full px-4 py-1 md:py-1.5  text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500 font-oswald '>
-                                <option value='all'>All</option>
-                                <option value='burger'> Burger </option>
-                                <option value='snack'> Snack </option>
-                                <option className='pb-2' value='beverage'>Beverage</option>
-                            </select>
+                        <div className='flex '>
+                            <input
+                                className="w-40  px-4 py-1 text-white border rounded-lg bg-gray-900  focus:outline-none focus:border-blue-500"
+                                id="title"
+                                type="text"
+                                placeholder="Title"
+                                required
+
+                            />
+                            <div className='py-2 px-1 md:w-44'>
+                                <select
+                                    className=' w-full px-4 py-1 md:py-1.5  text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500 font-oswald '>
+                                    <option value='all'>All</option>
+                                    <option value='burger'> Burger </option>
+                                    <option value='snack'> Snack </option>
+                                    <option className='pb-2' value='beverage'>Beverage</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 

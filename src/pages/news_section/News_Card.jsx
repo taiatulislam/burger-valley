@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import News_Features from "./News_Features";
 import { Link } from "react-router-dom";
-import Offer_Card from "./Offer_Card";
 import useGetAllNews from "../../Hooks/userGetAllnews";
-import News_Category from "./News_Category";
+import RightSide from "./RightSide";
+import News_Features from "./News_Features";
 
 
 const News_Card = () => {
@@ -46,7 +45,7 @@ const News_Card = () => {
 
                                     <h5 className="my-2 text-lg md:text-xl lg:text-2xl  font-bold tracking-tight font-oswald lg:tracking-wide text-white dark:text-white  ">
                                         {
-                                            news?.title?.slice(0 , 50)
+                                            news?.title?.slice(0, 50)
 
                                         }..
                                     </h5>
@@ -78,11 +77,11 @@ const News_Card = () => {
 
 
                 <div className="lg:block lg:w-4/12 px-2 py-4">
-                    <News_Features allNewsData={allNewsData} />
+                    <News_Features allNewsData={allNewsData}></News_Features>
                     <h1 className="text-xl font-bold text-white ">CATEGORY</h1>
                     <div className="border-b-4 border-[#FF9D00] py-1 w-16"></div>
-                    <News_Category tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} ></News_Category>
-                    <Offer_Card></Offer_Card>
+                    <RightSide tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab}></RightSide>
+
                 </div>
             </div>
         </>
