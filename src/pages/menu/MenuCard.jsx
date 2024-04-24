@@ -33,20 +33,20 @@ console.log(wishlistData);
   };
     return (
         <div>
-             <div key={_id} className="relative">
-              <div className="lg:w-[280px] ">
-                <div className="p-4 lg:w-[270px] bg-neutral-800 border-slate-800 border-2 rounded-xl">
+             <div key={_id} className="relative ">
+              <div className="lg:w-[300px] 2xl:w-[360px] lg:mt-6  ">
+                <div className="p-4 bg-neutral-800 rounded-xl">
                   <img
-                    className="h-[225px]  bg-cover mx-auto w-72 rounded-xl"
+                    className="h-[245px] bg-cover mx-auto rounded-xl"
                     src={image}
                     alt=""
                   />
                 </div>
 
-                <h5 className="text-xl font-semibold tracking-tight  text-white">
+                <h5 className="text-xl px-1 py-2 font-semibold text-white">
                   {name}
                 </h5>
-                <p className="text-white text-sm pt-3">{description}</p>
+                <p className="text-white px-1 text-sm pt-3">{description}</p>
 
                 <div className="flex mt-5 items-center justify-between">
                   <span className="text-2xl font-bold text-yellow-500 ">
@@ -59,8 +59,8 @@ console.log(wishlistData);
                   </Link>
                 </div>
               </div>
-              <div onClick={handleAddToWishlist} className="absolute top-5 right-6 ">
-                <button className="text-red-500 mr-4 text-2xl">
+              <div onClick={handleAddToWishlist} className="absolute top-3 right-0 left-2 ">
+                <button className="text-red-500 text-2xl">
                   <FaRegHeart />
                 </button>
               </div>
