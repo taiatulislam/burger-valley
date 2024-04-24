@@ -62,9 +62,9 @@ const AllNews = () => {
     if (isLoading) {
 
         return (
-            < div className='text-center flex items-center justify-center '>
+            < div className='text-center flex items-center justify-center min-h-screen'>
                 <div aria-label="Loading..." role="status" class="flex items-center space-x-2">
-                    <svg class="h-20 w-20 animate-spin stroke-gray-500" viewBox="0 0 256 256">
+                    <svg class="md:h-16 h-10 md:w-20 w-16 animate-spin stroke-gray-500" viewBox="0 0 256 256">
                         <line x1="128" y1="32" x2="128" y2="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
                         <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="24"></line>
@@ -80,7 +80,7 @@ const AllNews = () => {
                         <line x1="60.1" y1="60.1" x2="82.7" y2="82.7" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
                         </line>
                     </svg>
-                    <span class="text-4xl font-medium text-gray-500">Loading...</span>
+                    <span class="lg:text-4xl md:text-xl text-lg font-medium text-gray-500">Loading...</span>
                 </div>
             </div >
         )
@@ -112,35 +112,35 @@ const AllNews = () => {
                     <div className="overflow-x-auto">
                         <table className="w-full mt-2">
                             <tr className='text-[#FF9D00] font-oswald '>
-                                <th className="border border-white text-sm md:text-md lg:text-lg py-3">N/A</th>
-                                <th className="border border-white text-sm md:text-md lg:text-lg py-3">Title Nme</th>
-                                <th className="border border-white text-sm md:text-md lg:text-lg p-2">News Image</th>
-                                <th className="border border-white text-sm md:text-md lg:text-lg py-3">Category</th>
-                                <th className="border border-white text-sm md:text-md lg:text-lg py-3">Likes</th>
-                                <th className="border border-white text-sm md:text-md lg:text-lg py-3">Dislikes</th>
-                                <th className="border border-white text-sm md:text-md lg:text-lg py-3">Action</th>
+                                <th className="border border-gray-400 text-sm md:text-md lg:text-lg py-3">N/A</th>
+                                <th className="border border-gray-400 text-sm md:text-md lg:text-lg py-3">Title Nme</th>
+                                <th className="border border-gray-400 text-sm md:text-md lg:text-lg p-2">News Image</th>
+                                <th className="border border-gray-400 text-sm md:text-md lg:text-lg py-3">Category</th>
+                                <th className="border border-gray-400 text-sm md:text-md lg:text-lg py-3">Likes</th>
+                                <th className="border border-gray-400 text-sm md:text-md lg:text-lg py-3">Dislikes</th>
+                                <th className="border border-gray-400 text-sm md:text-md lg:text-lg py-3">Action</th>
                             </tr>
                             {
                                 allNewsData?.map((news, i) => <tr key={news._id}>
-                                    <td className="border border-white p-2 text-center ">{i + 1} </td>
-                                    <td className="border border-white md:p-2 p-1  text-sm  ">
+                                    <td className="border border-gray-400 p-2 text-center ">{i + 1} </td>
+                                    <td className="border border-gray-400 md:p-2 p-1  text-sm  ">
                                         {
-                                            news?.title.slice(0, 30)
+                                            news?.title?.slice(0, 30)
                                         }.....
                                     </td>
-                                    <td className="border border-white p-2">
+                                    <td className="border border-gray-400 p-2">
                                         <img className='w-20 md:h-16 rounded-lg  mx-auto ' src={news?.image} alt="" />
                                     </td>
-                                    <td className="border border-white p-2 text-center uppercase "> {news?.category} </td>
-                                    <td className="border border-white p-2 text-center "> {news?.likes} </td>
-                                    <td className="border border-white p-2 text-center "> {news?.dislikes} </td>
+                                    <td className="border border-gray-400 p-2 text-center uppercase "> {news?.category} </td>
+                                    <td className="border border-gray-400 p-2 text-center "> {news?.likes} </td>
+                                    <td className="border border-gray-400 p-2 text-center "> {news?.dislikes} </td>
 
-                                    <td className=" flex items-center justify-center gap-3 md:py-6 py-4 border border-white p-2">
+                                    <td className=" flex items-center justify-center gap-3 md:py-6 py-4 border border-gray-400 p-2">
                                         <span className="p-1 w-fit  text-white cursor-pointer text-sm rounded-md">
                                             <CiEdit size={30}></CiEdit>
                                         </span>
                                         <span onClick={() => handleNewsDelete(news?._id, news?.title)} className="p-1 cursor-pointer w-fit text-white text-sm rounded-md">
-                                            <MdDelete size={30}></MdDelete>
+                                            <MdDelete className='text-red-500 ' size={30}></MdDelete>
                                         </span>
                                     </td>
                                 </tr>)
