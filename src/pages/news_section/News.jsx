@@ -5,6 +5,9 @@ const News = () => {
     return (
         <div className=''>
             <News_Card></News_Card>
+
+
+            
         </div>
     );
 };
