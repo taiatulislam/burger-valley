@@ -25,7 +25,7 @@ const News_Card = () => {
 
     let [activeTab, setActiveTab] = useState(tabs[0]?.id);
     const CurrentTab = activeTab === "all" ? allNewsData : allNewsData?.filter((food) => food?.category === activeTab);
-    
+
 
 
     return (
@@ -35,18 +35,23 @@ const News_Card = () => {
             <div className="lg:flex bg-black ">
 
 
-                <section className="container mx-auto   w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 md:gap-4 gap-2 md:px-2 py-4 ">
+                <section className="container mx-auto  w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 2xl:gap-4  md:gap-4 gap-2 md:px-2 py-4 ">
                     {
                         CurrentTab?.map((news) => <div key={news._id} className="">
-                            <div className="w-full h-[65vh] bg-black border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div className="w-full lg:h-[100vh]  2xl:h-[60vh] bg-black border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
                                 <img className="rounded-t-lg w-full object-cover " src={news?.image} alt="" />
 
                                 <div className="lg:px-2 md:px-1 px-2 py-1 ">
 
-                                    <h5 className="my-2 text-lg md:text-xl lg:text-2xl  font-bold tracking-tight font-oswald lg:tracking-wide text-white dark:text-white  ">{news?.title}</h5>
+                                    <h5 className="my-2 text-lg md:text-xl lg:text-2xl  font-bold tracking-tight font-oswald lg:tracking-wide text-white dark:text-white  ">
+                                        {
+                                            news?.title.slice(0 , 50)
 
-                        
+                                        }
+                                    </h5>
+
+
                                     <p className="text-white ">
                                         {
                                             news?.description?.paragraphs[0].slice(0, 80)
