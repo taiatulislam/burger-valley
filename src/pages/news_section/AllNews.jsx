@@ -84,16 +84,10 @@ const AllNews = () => {
                 </div>
             </div >
         )
-
     }
-
-
-
-
 
     return (
         <div className="container mx-auto md:py-6 py-3 text-white ">
-
             <div className="space-y-6">
                 <div className=" p-5 rounded-lg bg-50-50">
                     <div className='flex items-center justify-between'>
