@@ -1,54 +1,28 @@
-// import { useQuery } from "@tanstack/react-query";
-// import UseAxios from "../../../Hooks/useAxios";
-
+import { useQuery } from "@tanstack/react-query";
+import UseAxios from "../../../Hooks/useAxios";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Category = () => {
-  //   const axios = UseAxios();
+  const axios = UseAxios();
 
-  //   const { data: categories } = useQuery({
-  //     queryKey: ["categories"],
-  //     queryFn: async () => {
-  //       const res = await axios.get("/category");
-  //       return res.data;
-  //     },
-  //   });
-
-  const categories = [
-    {
-      _id: "6624cb1fb49a03106af71b9e",
-      categoryName: "Burger",
-      categoryImage: "https://i.ibb.co/g3C81ZF/burger.png",
-      categoryDescription: "Delicious Burgers",
-      bgColorCode: "#FFBA00",
-      linkColorCode: "#1E1600",
+  const { data: categories = [] } = useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const res = await axios.get("/api/v1/category");
+      return res.data.data;
     },
-    {
-      _id: "6624cb1fb49a03106af71b9f",
-      categoryName: "Snack",
-      categoryImage: "https://i.ibb.co/qFJ8RWC/snack.png",
-      categoryDescription: "Tasty Snacks",
-      bgColorCode: "#007A36",
-      linkColorCode: "#FFBA00",
-    },
-    {
-      _id: "6624cb1fb49a03106af71ba0",
-      categoryName: "Beverage",
-      categoryImage: "https://i.ibb.co/bBZRxhb/beverage.png",
-      categoryDescription: "Refreshing Drinks",
-      bgColorCode: "#CC3433",
-      linkColorCode: "#FFBA00",
-    },
-  ];
+  });
 
   return (
     <>
-      <hr className="my-16 border-gray-700 border-[1px]" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-white px-5 lg:px-0">
+      <hr className="mb-16 border-gray-700 border-[1px]" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-white">
         {categories.map((category) => (
-          <div
+          <motion.div
             key={category._id}
-            className="flex items-center rounded-lg"
+            whileHover={{ scale: 1.1 }}
+            className="flex items-center rounded-lg hover:shadow-white shadow-[10px_10px_10px_-7px_rgba(0,0,0,0.3)]"
             style={{ backgroundColor: `${category?.bgColorCode}` }}
           >
             <div className="w-[40%]">
@@ -59,15 +33,19 @@ const Category = () => {
               />
             </div>
             <div className="w-[60%]">
-              <h3 className="text-xl font-bold uppercase">
+              <h3 className="text-xl font-bold uppercase font-oswald">
                 {category?.categoryName}
               </h3>
-              <h3 className="mb-2">{category?.categoryDescription}</h3>
-              <Link href="/" style={{ color: `${category?.linkColorCode}` }}>
+              <h3 className="mb-2 text-xs">{category?.categoryDescription}</h3>
+              <Link
+                to="/all-foods"
+                state={`${category?.categoryName}`}
+                style={{ color: `${category?.linkColorCode}` }}
+              >
                 Buy Online
               </Link>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </>

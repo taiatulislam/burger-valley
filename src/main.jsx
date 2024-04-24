@@ -3,12 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/Routes";
-import TranstackProvider from "./Providers/TranstackProvider/TranstackProvider";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <TranstackProvider>
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </TranstackProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

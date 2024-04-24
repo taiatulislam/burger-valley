@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 
 const CustomerReview = () => {
   return (
-    <div className="py-16 text-white bg-zinc-900 px-5">
+    <div className="py-16 text-white bg-neutral-800 px-5">
       <SectionTitle
         title={"Customer Review"}
         description={

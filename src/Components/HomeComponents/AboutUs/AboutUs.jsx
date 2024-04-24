@@ -6,7 +6,7 @@ const AboutUs = () => {
   return (
     <>
       <hr className="my-16 border-gray-700 border-[1px]" />
-      <div className="flex flex-col lg:flex-row gap-10 text-white px-5 lg:px-0">
+      <div className="flex flex-col lg:flex-row gap-10 text-white ">
         <div className="w-full lg:w-1/2">
           <img
             src={sectionImage}
@@ -23,7 +23,7 @@ const AboutUs = () => {
             barWidth={100}
           ></ContentTitle>
 
-          <div className="flex my-5 gap-20 text-gray-400">
+          <div className="flex my-5 justify-between lg:gap-20 text-gray-400">
             <div>
               <h3>
                 <IoArrowRedo className="inline mr-5 text-yellow-400"></IoArrowRedo>
