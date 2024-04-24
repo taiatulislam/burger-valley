@@ -7,6 +7,7 @@ import { useLoaderData } from 'react-router-dom';
 import useGetAllNews from '../../Hooks/userGetAllnews';
 import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
 import LikeAndDislike from './LikeAndDislike';
+import CommentPage from './CommentPage';
 
 
 const News_Details = () => {
@@ -21,8 +22,6 @@ const News_Details = () => {
     const newsData = useLoaderData()
     const { _id } = newsData;
     console.log(_id);
-
-
 
 
 
@@ -166,7 +165,8 @@ const News_Details = () => {
                             <h1 className='text-2xl font-bold py-4 '> Leave  Reply </h1>
                             <p className='mb-6'> Please Share Your Opinio Now  .</p>
 
-                            <Comment newsData={newsData}></Comment>
+                            {/* <Comment newsData={newsData}></Comment> */}
+                           <CommentPage  newsData={newsData}></CommentPage>
 
                         </div>
 

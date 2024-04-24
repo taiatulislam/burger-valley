@@ -4,7 +4,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import useAxios from '../../Hooks/useAxios';
 
 
-const Comment = ({ newsData }) => {
+const CommentPage = ({ newsData }) => {
 
     const { _id } = newsData || {}
 
@@ -127,4 +127,4 @@ const Comment = ({ newsData }) => {
     );
 };
 
-export default Comment;
+export default CommentPage;
