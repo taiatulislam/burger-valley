@@ -3,81 +3,83 @@ import { useParams } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { useState } from "react";
+
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 import useAxios from "../../Hooks/useAxios";
 const MenuDetails = () => {
-  const axiosPublic = useAxios();
+
   const param = useParams();
   const [quantity, setQuantity] = useState(1);
   const [favorite, setFavorite] = useState(false);
   const { data: product = {} } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/api/v1/products/${param?.id}`);
+      const res = await instance.get(`/api/v1/products/${param?.id}`);
       return res.data;
     },
   });
   const { name, image, _id, price, category, discount } = product;
-  const handleAddToWishlist = () => {
+  const instance = useAxios()
+  const handleAddToWishlist = async () => {
     // const user_name = currentUser?.name;
-    const quantity = 1;
-    const wishlistData = {
-      //   user_name,
-      //   user_email,
-      //   owner_email,
-      food_id: _id,
-      name,
-      image,
-      price,
-      category,
-      quantity,
-    };
-    console.log(wishlistData);
-    // add operation
-    axiosPublic
-      .post("/api/v1/wishlist", wishlistData)
-      .then((response) => {
-        console.log(response?.data);
-      })
-      .catch((error) => {
-        console.error("Error adding to wishlist:", error);
-      });
+    try {
+      const quantity = 1;
+      const wishlistData = {
+        //   user_name,
+        //   user_email,
+        //   owner_email,
+        food_id: _id,
+        discount,
+        name,
+        image,
+        price,
+        category,
+        quantity,
+      };
+      console.log(wishlistData);
+
+      const res = await instance.post("/api/v1/wishlist", wishlistData);
+
+      if (res?.data) {
+        toast.success("Successfully Added in the Wishlist!");
+      }
+    } catch (error) {
+      console.error("Error submitting comment:", error);
+      toast.error("Error submitting in Wishlist. Please try again later.");
+    }
   };
 
   const handleAddToCart = () => {
-    // const user_name = currentUser?.name;
-    // const user_email = currentUser?.email;
     const food_id = _id;
-console.log(food_id);
-    const quantity = 1;
-
     const addCart = {
       food_id,
       unit_price: price,
-      total_price: price,
+      total_price: price * quantity,
       quantity,
       discount,
       image,
       name,
       category,
     };
-console.log(addCart);
-    // axiosSecure
-    //   .post("/api/v1/carts", addCart)
-    //   .then((response) => {
-    //     Swal.fire({
-    //       position: "top-end",
-    //       icon: "success",
-    //       title: "Add book in the cart.",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //     cartRefetch();
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
-  };
 
+    console.log(addCart);
+    instance
+      .post("/api/v1/myCarts", addCart)
+      .then((response) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Add food in the cart.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
   return (
     <div className="mx-auto lg:p-12">
@@ -91,7 +93,10 @@ console.log(addCart);
           <h2 className="text-xl text-white font-semibold">{name}</h2>
 
           <h2 className="text-yellow-500 text-xl font-medium my-1">
-            $ {product?.price}
+            Food Price: $ {price}
+          </h2>
+          <h2 className="text-yellow-500 text-xl font-medium my-1">
+            Total Price: $ {price * quantity}
           </h2>
           <hr className="my-5" />
           <p className="text-gray-500 mb-3">{product?.description}</p>
