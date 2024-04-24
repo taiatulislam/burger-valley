@@ -74,46 +74,51 @@ const Add_News = () => {
 
     return (
 
-        <div className="container mx-auto md:mt-4 px-1 bg-gray-700">
-            <h1 className='py-2 text-white font-bold px-4'> Add News Page </h1>
+        <div className="container mx-auto md:mt-4 px-1 bg-black ">
+            <h1 className='py-2 text-[#FF9D00] font-oswald lg:text-3xl md:text-xl text-lg font-bold px-4 '> Add News Page </h1>
             <form onSubmit={handleSubmit(onSubmit)} className=" shadow-md rounded px-4 pt-4 pb-8 mb-4">
-                <div className="mb-4">
-                    <label className="block text-white  text-sm font-bold mb-2" htmlFor="title">
-                        Title
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="title"
-                        type="text"
-                        placeholder="Title"
-                        required
-                        {...register("title")}
-                    />
-                </div>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
+                    {/* title */}
+                    <div className="mb-4">
+                        <label className="block md:text-2xl  text-white  text-sm font-bold mb-2" htmlFor="title">
+                            Title
+                        </label>
+                        <input
+                            className="w-full px-4 py-2 text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500"
+                            id="title"
+                            type="text"
+                            placeholder="Title"
+                            required
+                            {...register("title")}
+                        />
+                    </div>
+
+                    {/* category */}
+                    <div className="mb-4">
+                        <label className="block md:text-2xl text-white  text-sm font-bold mb-2">
+                            Category
+                        </label>
+                        <select className="w-full px-4 py-2  text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500 " id="category" {...register("category")} required  >
+                            <option value="" className='text-gray-200'> Category Selected </option>
+                            <option value="burger">Burger</option>
+                            <option value="snack">Snack </option>
+                            <option value="beverage">Beverage </option>
+                        </select>
+                    </div>
 
 
-                <div className="mb-4">
-                    <label className="block text-white  text-sm font-bold mb-2">
-                        Category
-                    </label>
-                    <select className="w-full px-4 py-2 text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500 " id="category" {...register("category")}  required  >
-                        <option value="" className='text-gray-200'> Selected Category</option>
-                        <option value="Burger">Burger</option>
-                        <option value="Digital Marketing">Digital Marketing </option>
-                        <option value="Graphics Design">Graphics Design </option>
-                    </select>
                 </div>
 
 
                 {/* tag */}
-
-                <div className="mb-4">
-                    <label className="block text-gray-200 text-sm font-bold mb-2" htmlFor="tags">
+                <div>
+                    <label className="block md:text-2xl text-gray-200 text-sm font-bold mb-2" htmlFor="tags">
                         Tags (Enter separated)
                     </label>
                     <div className="flex flex-wrap">
                         {tags?.map((tag, index) => (
-                            <div key={index} className="flex items-center bg-gray-200 text-green-600 mb-1 rounded-lg px-3 py-1 mr-2 mt-1">
+                            <div key={index} className="flex items-center bg-gray-900 text-[#FF9D00]  mb-1 rounded-lg px-3 py-1 mr-2 mt-1">
                                 {tag}
                                 <button type="button" className="ml-2 " onClick={() => removeTag(index)}>
                                     &#10005;
@@ -121,20 +126,19 @@ const Add_News = () => {
                             </div>
                         ))}
                         <input
-                            className="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 bg-gray-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                            className="w-full px-4 py-2 text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500"
                             id="tags"
                             type="text"
                             placeholder="Tags Names"
                             onKeyDown={handleKeyDown}
                         />
                     </div>
+                </div>
 
-
-
+                <div className="mb-4 grid md:grid-cols-2 lg:grid-cols-2 gap-4 ">
 
                     {/* Image input */}
                     <div className="mt-6">
-
                         <div className=" grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 items-center mt-2">
                             {images.map((image, index) => (
                                 <div key={index} className="relative mr-4 mb-4">
@@ -146,7 +150,7 @@ const Add_News = () => {
                                     <button
                                         type="button"
                                         onClick={() => handleRemoveImage(index)}
-                                        className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-full"
+                                        className="absolute top-0 right-0 bg-[#FF9D00] text-white p-1 rounded-full"
                                     >
                                         <MdDeleteOutline />
                                     </button>
@@ -154,13 +158,13 @@ const Add_News = () => {
                             ))}
                         </div>
                         {/* Upload button */}
-                        <label className="text-gray-600 ">Up Load Image</label>
+                        <label className="block md:text-2xl text-white  text-sm font-bold mb-2">Up Load Image</label>
 
                         <div
                             onClick={() => document.querySelector("#image").click()}
-                            className="cursor-pointer mt-4 p-4 border border-gray-600 rounded-md flex items-center justify-center"
+                            className="cursor-pointer mt-4 p-4 border bg-gray-800 rounded-md flex items-center justify-center"
                         >
-                            <LuUpload className="text-3xl text-[#F01543] mx-auto"></LuUpload>{" "}
+                            <LuUpload className="text-3xl text-[#FF9D00] mx-auto"></LuUpload>{" "}
                             <p className="ml-2"></p>{" "}
                         </div>
                         {/* Hidden file input */}
@@ -175,29 +179,25 @@ const Add_News = () => {
                     </div>
 
 
-
-                    {/* description */}
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
-                            Description
-                        </label>
-                        <textarea
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="description"
-                            placeholder="Description"
-                            required
-                            {...register("description")}
-                        />
-                        {/* {errors.description && <p className="text-red-500 text-xs italic">Description is required</p>} */}
-                    </div>
-
                 </div>
 
-
+                {/* description */}
+                <div className="mb-4">
+                    <label className="block md:text-2xl text-white  text-sm font-bold mb-2" htmlFor="description">
+                        Description
+                    </label>
+                    <textarea
+                        className="w-full h-auto min-h-60  px-4 py-2 text-white border rounded-lg bg-gray-800 focus:outline-none focus:border-blue-500 "
+                        id="description"
+                        placeholder="Description"
+                        required
+                        {...register("description")}
+                    />
+                </div>
 
                 <div className="flex items-center justify-between">
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        className="bg-[#FF9D00] hover:bg-[#FF9D00]-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
                     >
                         Submit
