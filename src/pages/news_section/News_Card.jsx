@@ -46,15 +46,15 @@ const News_Card = () => {
 
                                     <h5 className="my-2 text-lg md:text-xl lg:text-2xl  font-bold tracking-tight font-oswald lg:tracking-wide text-white dark:text-white  ">
                                         {
-                                            news?.title.slice(0 , 50)
+                                            news?.title?.slice(0 , 50)
 
-                                        }
+                                        }..
                                     </h5>
 
 
                                     <p className="text-white ">
                                         {
-                                            news?.description?.paragraphs[0].slice(0, 80)
+                                            news?.description?.paragraphs[0]?.slice(0, 80)
 
                                         }
                                         .....
