@@ -110,6 +110,16 @@ const Navbar = () => {
                 </li>
                 <li className=" px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-white duration-300 hover:opacity-75">
                   <NavLink
+                    to="/gallery"
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ? "text-[#FF9D00]" : ""
+                    }
+                  >
+                    Gallery
+                  </NavLink>
+                </li>
+                <li className=" px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-white duration-300 hover:opacity-75">
+                  <NavLink
                     to="/news"
                     className={({ isActive, isPending }) =>
                       isPending ? "pending" : isActive ? "text-[#FF9D00]" : ""
