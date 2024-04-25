@@ -1,3 +1,5 @@
+
+import Add from "../news_section/Add";
 import CategoryMenu from "./CategoryMenu";
 
 function Home() {
@@ -9,8 +11,9 @@ function Home() {
           We provide high-quality services to meet all your needs.
         </p>
         <p className="text-lg mt-4 text-white">Contact us today to get started.</p>
-<CategoryMenu></CategoryMenu>
+        <CategoryMenu></CategoryMenu>
       </div>
+      <Add></Add>
     </div>
   );
 }

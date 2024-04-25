@@ -92,12 +92,12 @@ const AllNews = () => {
                 <div className=" p-5 rounded-lg bg-50-50">
                     <div className='flex items-center justify-between'>
                         <h1 className="text-2xl font-bold pb-1 font-oswald ">All News </h1>
-                        <div className='flex '>
+                        <div className='flex items-center justify-between gap-6 '>
                             <input
-                                className="w-40  px-4 py-1 text-white border rounded-lg bg-gray-900  focus:outline-none focus:border-blue-500"
-                                id="title"
+                                className="w-60  px-4 py-1.5  text-white border rounded-lg bg-gray-900  focus:outline-none focus:border-blue-500"
+                               
                                 type="text"
-                                placeholder="Title"
+                                placeholder="Search Now"
                                 required
 
                             />
