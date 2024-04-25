@@ -1,6 +1,7 @@
 import sectionImage from "../../../assets/images/test-food.jpg";
 import ContentTitle from "../../Shared/ContentTitle.jsx/ContentTitle";
 import { IoArrowRedo } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const AboutUs = () => {
   return (
@@ -23,31 +24,35 @@ const AboutUs = () => {
             barWidth={100}
           ></ContentTitle>
 
-          <div className="flex my-5 justify-between lg:gap-20 text-gray-400">
+          <div className="flex my-5 justify-between md:justify-start gap-0 md:gap-20 text-gray-400">
             <div>
               <h3>
-                <IoArrowRedo className="inline mr-5 text-yellow-400"></IoArrowRedo>
+                <IoArrowRedo className="inline mr-5 text-[#FF9D00]"></IoArrowRedo>
                 Best Price
               </h3>
               <h3>
-                <IoArrowRedo className="inline mr-5 text-yellow-400"></IoArrowRedo>
+                <IoArrowRedo className="inline mr-5 text-[#FF9D00]"></IoArrowRedo>
                 Fresh Ingredient
               </h3>
             </div>
             <div>
               <h3>
-                <IoArrowRedo className="inline mr-5 text-yellow-400"></IoArrowRedo>
+                <IoArrowRedo className="inline mr-5 text-[#FF9D00]"></IoArrowRedo>
                 Best Service
               </h3>
               <h3>
-                <IoArrowRedo className="inline mr-5 text-yellow-400"></IoArrowRedo>
+                <IoArrowRedo className="inline mr-5 text-[#FF9D00]"></IoArrowRedo>
                 Health Protocol
               </h3>
             </div>
           </div>
-          <button className="bg-yellow-400 text-black px-5 py-3 rounded-sm font-semibold">
+          <motion.button
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            className="bg-[#FF9D00] text-black px-5 py-3 rounded-sm font-semibold"
+          >
             About Us
-          </button>
+          </motion.button>
         </div>
       </div>
     </>

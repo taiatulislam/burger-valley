@@ -49,7 +49,7 @@ const CustomerReview = () => {
                     <h3>Graphics Designer</h3>
                   </div>
                 </div>
-                <FaQuoteRight className="text-4xl text-yellow-400" />
+                <FaQuoteRight className="text-4xl text-[#FF9D00]" />
               </div>
             </div>
           </SwiperSlide>
@@ -74,7 +74,7 @@ const CustomerReview = () => {
                     <h3>Graphics Designer</h3>
                   </div>
                 </div>
-                <FaQuoteRight className="text-4xl text-yellow-400" />
+                <FaQuoteRight className="text-4xl text-[#FF9D00]" />
               </div>
             </div>
           </SwiperSlide>
@@ -99,7 +99,7 @@ const CustomerReview = () => {
                     <h3>Graphics Designer</h3>
                   </div>
                 </div>
-                <FaQuoteRight className="text-4xl text-yellow-400" />
+                <FaQuoteRight className="text-4xl text-[#FF9D00]" />
               </div>
             </div>
           </SwiperSlide>
@@ -124,7 +124,7 @@ const CustomerReview = () => {
                     <h3>Graphics Designer</h3>
                   </div>
                 </div>
-                <FaQuoteRight className="text-4xl text-yellow-400" />
+                <FaQuoteRight className="text-4xl text-[#FF9D00]" />
               </div>
             </div>
           </SwiperSlide>
