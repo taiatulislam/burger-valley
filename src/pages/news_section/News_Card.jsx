@@ -9,8 +9,6 @@ const News_Card = () => {
 
     const [expandedNews, setExpandedNews] = useState({});
 
-
-
     const [allNewsData] = useGetAllNews()
     console.log(allNewsData);
 

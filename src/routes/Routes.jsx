@@ -83,7 +83,7 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     children: [
       {
-        path: "all-news",
+        path: "/dashboard/all-news",
         element: <AllNews></AllNews>
       },
       {

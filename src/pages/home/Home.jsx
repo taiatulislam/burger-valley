@@ -1,5 +1,4 @@
 
-import Add from "../news_section/Add";
 import CategoryMenu from "./CategoryMenu";
 
 function Home() {
@@ -13,7 +12,7 @@ function Home() {
         <p className="text-lg mt-4 text-white">Contact us today to get started.</p>
         <CategoryMenu></CategoryMenu>
       </div>
-      <Add></Add>
+  
     </div>
   );
 }
