@@ -28,7 +28,7 @@ const AllMenus = () => {
               setActiveTab(tab?.id);
             }}
             className={`${activeTab === tab?.id ? "" : ""}
-                                relative rounded-xl px-6 bg-[#171717]  py-3 text-base font-medium  transition text-white focus-visible:outline-2`}
+                                relative rounded-xl px-6 bg-[#171717] font-oswald py-3 text-base font-medium  transition text-white focus-visible:outline-2`}
             style={{
               WebkitTapHighlightColor: "transparent",
             }}
@@ -36,7 +36,7 @@ const AllMenus = () => {
             {activeTab === tab?.id && (
               <motion.span  
                 layoutId="bubble"
-                className="absolute inset-0 z-10  bg-yellow-500 mix-blend-hard-light"
+                className="absolute inset-0 z-10  bg-yellow-500 font-oswald mix-blend-hard-light"
                 style={{ borderRadius: 9 }}
                 transition={{ type: "spring", bounce: -10, duration: 0.6 }}
               />

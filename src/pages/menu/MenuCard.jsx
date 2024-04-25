@@ -52,13 +52,13 @@ const MenuCard = ({food}) => {
           />
         </div>
 
-        <h5 className="text-xl px-1 py-2 font-semibold text-white">
+        <h5 className="text-xl px-1 py-2 font-semibold text-white font-oswald">
           {name}
         </h5>
-        <p className="text-white px-1 text-sm pt-3">{description}</p>
+        <p className="text-white px-1 text-sm pt-3 font-oswald">{description}</p>
 
         <div className="flex mt-5 items-center justify-between">
-          <span className="text-2xl font-bold text-yellow-500 ">
+          <span className="text-2xl   text-yellow-500 font-oswald ">
             ${price}
           </span>
           <Link to={`food/${_id}`}>
