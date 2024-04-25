@@ -1,6 +1,7 @@
 import burger from "../../../assets/images/DOUBLE MAC BURGER.png";
 import coke from "../../../assets/images/COLA.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const OfferFood = () => {
   return (
@@ -22,7 +23,9 @@ const OfferFood = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
               perferendis.
             </p>
-            <button className="text-[#FF9D00]">Buy Online</button>
+            <Link to="/offer-foods">
+              <button className="text-[#FF9D00]">Buy Online</button>
+            </Link>
           </div>
           <img
             src={burger}

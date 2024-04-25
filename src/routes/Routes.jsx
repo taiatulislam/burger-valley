@@ -15,7 +15,7 @@ import Add_News from "../pages/news_section/Add_News";
 import Faq from "../pages/faq/Faq";
 import AllNews from "../pages/news_section/AllNews";
 import Gallery from "../pages/gallery/Gallery";
-import OfferFood from "../Components/HomeComponents/OfferFood/OfferFood";
+import OfferMenu from "../pages/offerMenu/OfferMenu";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       ,
       {
         path: "/offer-foods",
-        element: <OfferFood />,
+        element: <OfferMenu />,
       },
       {
         path: "login",
