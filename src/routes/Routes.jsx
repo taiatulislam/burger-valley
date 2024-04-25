@@ -60,6 +60,7 @@ const router = createBrowserRouter([
         path: "all-news",
         element: <AllNews></AllNews>,
       },
+
       {
         path: "/news_details/:id",
         element: <News_Details></News_Details>,
@@ -91,8 +92,18 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard/all-news",
+        element: <AllNews></AllNews>,
+      },
+      {
+        path: "add-news",
+        element: <Add_News></Add_News>,
+      },
+    ],
   },
 ]);
 

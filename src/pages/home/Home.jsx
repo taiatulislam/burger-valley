@@ -5,6 +5,7 @@ import OfferFood from "../../Components/HomeComponents/OfferFood/OfferFood";
 import VideoSection from "../../Components/HomeComponents/VideoSection/VideoSection";
 import CustomerReview from "../../Components/Shared/CustomerReview/CustomerReview";
 import NewsLetter from "../../Components/Shared/NewsLetter/NewsLetter";
+import CategoryMenu from "./CategoryMenu";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
         <Banner />
         <Category />
         <OfferFood />
+        <CategoryMenu></CategoryMenu>
         <AboutUs />
         <VideoSection />
         <NewsLetter />
